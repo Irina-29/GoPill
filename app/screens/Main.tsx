@@ -28,10 +28,21 @@ const MainNavigator = () => (
                 headerShown: false,
                 tabBarLabel: 'Items',
                 tabBarIcon: ({ color }) => (
-                    <Icon name="table" color={color} size={26} />
+                    <Icon name="calendar-month" color={color} size={26} />
                 ),
             }}
-        />       
+        />  
+        <Tab.Screen
+            name="Search"
+            component={ItemScreen}
+            options={{
+                headerShown: false,
+                tabBarLabel: 'Search',
+                tabBarIcon: ({ color }) => (
+                    <Icon name="magnify" color={color} size={26} />
+                ),
+            }}   
+        />  
     </Tab.Navigator>
 );
 

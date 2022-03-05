@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { StyleProp, View, ViewStyle } from "react-native";
 import { Button, TextInput, Paragraph } from "react-native-paper";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const LoginScreen = ({ navigation }: any) => {
+const RegisterScreen = ({ navigation }: any) => {
 
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [repeatPassword, setRepeatPassword] = useState('');
     const [hidePassword, setHidePassword] = useState(true);
     const [error, setError] = useState('');
 
@@ -14,13 +17,14 @@ const LoginScreen = ({ navigation }: any) => {
         margin: 20
     };
 
-    const changeText = (email: string) => setEmail(email);
-    const loginCheck = () => {
-        if(email !== "failed") {
-            navigation.navigate('Main');
-        } 
+    const register = () => {
+        if(password !== repeatPassword) {
+            setError("Password doesn't match")
+        }
         else {
-            setError("Login Failed");
+            AsyncStorage.setItem("@user", JSON.stringify({
+                name, email
+            })).then(() => navigation.navigate("Login"))
         }
     };
 
@@ -29,10 +33,18 @@ const LoginScreen = ({ navigation }: any) => {
             <TextInput
                 mode="outlined"
                 style={inputStyle}
+                label="Name"
+                value={name}
+                autoComplete={false}
+                onChangeText={(name: string) => setName(name)}
+            />
+            <TextInput
+                mode="outlined"
+                style={inputStyle}
                 label="Email"
                 value={email}
                 autoComplete={false}
-                onChangeText={changeText}
+                onChangeText={(email: string) => setEmail(email)}
             />
             <TextInput
                 mode="outlined"
@@ -44,17 +56,25 @@ const LoginScreen = ({ navigation }: any) => {
                 onChangeText={(password) => setPassword(password)}
                 right={<TextInput.Icon name="eye" onPress={() => setHidePassword(!hidePassword)} />}
             />
+            <TextInput
+                mode="outlined"
+                label="RepeatPassword"
+                style={inputStyle}
+                secureTextEntry={hidePassword}
+                value={repeatPassword}
+                autoComplete={false}
+                onChangeText={(password) => setRepeatPassword(password)}
+                right={<TextInput.Icon name="eye" onPress={() => setHidePassword(!hidePassword)} />}
+            />
             <Paragraph>
                 {error}
             </Paragraph>
             <Button mode="outlined" style={{ alignSelf: 'center' }}
-                onPress={loginCheck}
-            >Login</Button>
-            <Button mode="outlined" style={{ alignSelf: 'center' }}
-                onPress={() => navigation.navigate("Register")}
+                onPress={register}
+                //() => navigation.navigate('Main')
             >Register</Button>
         </View>
     );
 }
 
-export default LoginScreen;
+export default RegisterScreen;
