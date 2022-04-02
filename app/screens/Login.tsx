@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleProp, View, ViewStyle } from "react-native";
+import { StyleProp, View, ViewStyle, Image, StyleSheet } from "react-native";
 import { Button, TextInput, Paragraph } from "react-native-paper";
 
 const LoginScreen = ({ navigation }: any) => {
@@ -24,8 +24,25 @@ const LoginScreen = ({ navigation }: any) => {
         }
     };
 
+    const styles = StyleSheet.create({
+        container: {
+          paddingTop: 100,
+        },
+        size: {
+          width: 200,
+          height: 200,
+          resizeMode: 'stretch',
+        },
+      });
+
     return (
-        <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column', height: '50%', marginTop: '30%' }}>
+        <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column', height: '50%', marginTop: '30%', justifyContent: 'center', alignItems: 'center'}}>
+            <View style={styles.container}>
+                <Image 
+                    style={styles.size}
+                    source={require('./assets/GoPill-logo.png')}
+                />
+            </View>
             <TextInput
                 mode="outlined"
                 style={inputStyle}
@@ -47,10 +64,9 @@ const LoginScreen = ({ navigation }: any) => {
             <Paragraph>
                 {error}
             </Paragraph>
-            <Button mode="outlined" style={{ alignSelf: 'center' }}
-                onPress={loginCheck}
+            <Button mode="outlined" color="#81d3f9" style={{ alignSelf: 'center', marginBottom: 20, width: 150}} onPress={loginCheck}
             >Login</Button>
-            <Button mode="outlined" style={{ alignSelf: 'center' }}
+            <Button mode="outlined" color="#81d3f9" style={{ alignSelf: 'center', width: 150 }}
                 onPress={() => navigation.navigate("Register")}
             >Register</Button>
         </View>

@@ -58,7 +58,7 @@ const RegisterScreen = ({ navigation }: any) => {
             />
             <TextInput
                 mode="outlined"
-                label="RepeatPassword"
+                label="Repeat Password"
                 style={inputStyle}
                 secureTextEntry={hidePassword}
                 value={repeatPassword}
