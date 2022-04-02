@@ -22,17 +22,19 @@ const MainNavigator = () => (
             }}
         />
         <Tab.Screen
+            //SCHEDULE!!!
             name="Items"
             component={ItemScreen}
             options={{
                 headerShown: false,
-                tabBarLabel: 'Items',
+                tabBarLabel: 'Schedule',
                 tabBarIcon: ({ color }) => (
                     <Icon name="calendar-month" color={color} size={26} />
                 ),
             }}
         />  
         <Tab.Screen
+            //SEARCH!!!
             name="Search"
             component={ItemScreen}
             options={{
