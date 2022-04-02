@@ -26,7 +26,7 @@ const LoginScreen = ({ navigation }: any) => {
 
     const styles = StyleSheet.create({
         container: {
-          paddingTop: 100,
+            marginTop: '30%'
         },
         size: {
           width: 200,
@@ -64,7 +64,7 @@ const LoginScreen = ({ navigation }: any) => {
             <Paragraph>
                 {error}
             </Paragraph>
-            <Button mode="outlined" color="#81d3f9" style={{ alignSelf: 'center', marginBottom: 20, width: 150}} onPress={loginCheck}
+            <Button mode="outlined" color="#81d3f9" style={{ alignSelf: 'center', marginBottom: 25, width: 150}} onPress={loginCheck}
             >Login</Button>
             <Button mode="outlined" color="#81d3f9" style={{ alignSelf: 'center', width: 150 }}
                 onPress={() => navigation.navigate("Register")}
