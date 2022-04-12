@@ -23,16 +23,6 @@ const MainLayout = ({ children }: any) => {
 
     return (
         user ? <SafeAreaView>
-            <Appbar.Header style={{ backgroundColor: '#81d3f9'}}>
-                <TouchableOpacity style={{marginBottom: '6%', marginLeft: '2%'}} onPress={() => navigation.navigate("Profile")}>
-                    <Avatar.Image size={65} source={require('./assets/avatar.png')} />
-                </TouchableOpacity>
-                <Appbar.Content style={{marginBottom: '6%', marginLeft: '2%'}} title={`Hello, ${user.name || user.email}!`} />
-                {/* <Appbar.Action icon="logout" onPress={() => navigation.navigate("Login")}/> */}
-                <TouchableOpacity style={{marginBottom: '6%', marginLeft: '2%'}} onPress={() => navigation.navigate("Login")}>
-                    <Image style={{width: 38, height: 38, marginBottom: '6%', marginRight: '2%'}} source={require('./assets/cog-outline.png')}/>
-                </TouchableOpacity>
-            </Appbar.Header>
             <View style={{ alignSelf: 'stretch', backgroundColor: 'white', height: '100%', display: 'flex', flexDirection: 'column' }}>{children}</View>
         </SafeAreaView> :
             <ActivityIndicator />
