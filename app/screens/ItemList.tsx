@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "./Layout";
-import { Button, DataTable } from "react-native-paper";
+import { Button, Card, DataTable, Paragraph, Title } from "react-native-paper";
 
 const ItemListScreen = ({ navigation }: any) => {
 
@@ -9,18 +9,18 @@ const ItemListScreen = ({ navigation }: any) => {
          https://callstack.github.io/react-native-paper/data-table.html
          */
         return <MainLayout>
-                <DataTable>
-                        <DataTable.Header>
-                                <DataTable.Title>Item</DataTable.Title>
-                                <DataTable.Title numeric>Quantity</DataTable.Title>
-                        </DataTable.Header>
-                        {data.map(d => <DataTable.Row key={d.id} onPress={() => navigation.navigate('ItemEdit', { item: d })}>
-                                <DataTable.Cell>{d.label}</DataTable.Cell>
-                                <DataTable.Cell numeric>{d.quantity}</DataTable.Cell>
-                        </DataTable.Row>)}
-                </DataTable>
-
-                <Button mode="outlined" style={{ alignSelf: 'center', marginTop: 30 }} onPress={() => navigation.navigate('ItemEdit')}>Add</Button>
+                <Card>
+                        <Card.Title title="Card Title" subtitle="Card Subtitle"/>
+                        <Card.Content>
+                                <Title>Card title</Title>
+                                <Paragraph>Card content</Paragraph>
+                        </Card.Content>
+                        <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+                        <Card.Actions>
+                                <Button>Cancel</Button>
+                                <Button>Ok</Button>
+                        </Card.Actions>
+                </Card>
         </MainLayout >
 }
 

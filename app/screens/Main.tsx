@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from "./Home";
 import ItemScreen from "./Items";
 import HomeRootScreen from "./HomeRoot";
+import ItemListScreen from "./ItemList";
 
 //https://reactnavigation.org/docs/tab-based-navigation
 const Tab = createBottomTabNavigator();
@@ -23,9 +24,21 @@ const MainNavigator = () => (
             }}
         />
         <Tab.Screen
+            //  LIST!!!
+            name="Item"
+            component={ItemListScreen}
+            options={{
+                headerShown: false,
+                tabBarLabel: 'List',
+                tabBarIcon: ({ color }) => (
+                    <Icon name="calendar-month" color={color} size={26} />
+                ),
+            }}
+        />
+        <Tab.Screen
             //SCHEDULE!!!
             name="Items"
-            component={ItemScreen}
+            component={ItemListScreen}
             options={{
                 headerShown: false,
                 tabBarLabel: 'Schedule',
