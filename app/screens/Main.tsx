@@ -12,7 +12,7 @@ const MainNavigator = () => (
 
     <Tab.Navigator>
         <Tab.Screen
-            name="Home"
+            name="HomeRoot"
             component={HomeRootScreen}
             options={{
                 headerShown: false,

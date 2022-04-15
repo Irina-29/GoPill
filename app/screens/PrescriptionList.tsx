@@ -14,13 +14,17 @@ const PrescriptionListScreen = ({ navigation }: any) => {
                                 <DataTable.Title>Item</DataTable.Title>
                                 <DataTable.Title numeric>Quantity</DataTable.Title>
                         </DataTable.Header>
-                        {data.map(d => <DataTable.Row key={d.id} onPress={() => navigation.navigate('ItemEdit', { item: d })}>
+                        {data.map(d => <DataTable.Row key={d.id} onPress={() => navigation.navigate('PrescriptionEdit', { item: d })}>
                                 <DataTable.Cell>{d.label}</DataTable.Cell>
                                 <DataTable.Cell numeric>{d.quantity}</DataTable.Cell>
+                                <DataTable.Cell>
+                                        <Button icon="delete" mode="contained" onPress={() => console.log('Pressed')}>
+                                                Press me
+                                        </Button></DataTable.Cell>
                         </DataTable.Row>)}
                 </DataTable>
 
-                <Button mode="outlined" style={{ alignSelf: 'center', marginTop: 30 }} onPress={() => navigation.navigate('ItemEdit')}>Add</Button>
+                <Button mode="outlined" style={{ alignSelf: 'center', marginTop: 30 }} onPress={() => navigation.navigate('PrescriptionEdit')}>Add</Button>
         </MainLayout >
 }
 
