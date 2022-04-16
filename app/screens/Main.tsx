@@ -31,7 +31,7 @@ const MainNavigator = () => (
                 headerShown: false,
                 tabBarLabel: 'List',
                 tabBarIcon: ({ color }) => (
-                    <Icon name="calendar-month" color={color} size={26} />
+                    <Icon name="format-list-bulleted" color={color} size={26} />
                 ),
             }}
         />

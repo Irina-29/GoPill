@@ -64,9 +64,9 @@ const LoginScreen = ({ navigation }: any) => {
             <Paragraph>
                 {error}
             </Paragraph>
-            <Button mode="outlined" color="#81d3f9" style={{ alignSelf: 'center', marginBottom: 25, width: 150}} onPress={loginCheck}
+            <Button mode="outlined" color="#64b5f6" style={{ alignSelf: 'center', marginBottom: 25, width: 150}} onPress={loginCheck}
             >Login</Button>
-            <Button mode="outlined" color="#81d3f9" style={{ alignSelf: 'center', width: 150 }}
+            <Button mode="outlined" color="#64b5f6" style={{ alignSelf: 'center', width: 150 }}
                 onPress={() => navigation.navigate("Register")}
             >Register</Button>
         </View>

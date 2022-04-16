@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainLayout from "./Layout";
 import { Button, Paragraph } from "react-native-paper";
+
 const Profile = ({ navigation }: any) => {
     return (
         <MainLayout>

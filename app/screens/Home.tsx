@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainLayout from "./Layout";
-import { Subheading, Button, Appbar, Avatar } from "react-native-paper";
-import {TouchableOpacity, View, Image } from "react-native";
+import { Subheading, Button, Appbar, Avatar, List, Divider } from "react-native-paper";
+import {TouchableOpacity, View, Image, Text } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Stack = createNativeStackNavigator();
@@ -24,27 +24,52 @@ const HomeScreen = ({ navigation }: any) => {
 
     return (
         <MainLayout>
-            <Appbar.Header style={{ backgroundColor: '#81d3f9'}}>
+            <Appbar.Header style={{ backgroundColor: '#64b5f6'}}>
                 <TouchableOpacity style={{marginBottom: '6%', marginLeft: '2%'}} onPress={() => navigation.navigate("Profile")}>
                     <Avatar.Image size={65} source={require('./assets/avatar.png')} />
                 </TouchableOpacity>
-                <Appbar.Content style={{marginBottom: '6%', marginLeft: '2%'}} title={`Hello, ${user?.name || user?.email}!`} />
+                <Appbar.Content color={'white'} style={{marginBottom: '6%', marginLeft: '2%'}} title={`Hello, ${user?.name || user?.email}!`} />
                 {/* <Appbar.Action icon="logout" onPress={() => navigation.navigate("Login")}/> */}
-                <TouchableOpacity style={{marginBottom: '6%', marginLeft: '2%'}} onPress={() => navigation.navigate("Login")}>
+                {/* <TouchableOpacity style={{marginBottom: '6%', marginLeft: '2%'}} onPress={() => navigation.navigate("Login")}>
                     <Image style={{width: 38, height: 38, marginBottom: '6%', marginRight: '2%'}} source={require('./assets/cog-outline.png')}/>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </Appbar.Header>
-            <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column', marginTop: '5%', marginLeft: '5%'}}>
+            <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column', marginTop: '5%', marginLeft: '5%', marginRight: '5%'}}>
                     <Subheading>Quick Action</Subheading>
-                        <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center',  marginTop: '10%', marginBottom: '10%'}}>
-                            <Button mode="outlined" color="#81d3f9" style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
-                            // onPress={() => navigation.navigate("Schedule")}
-                            >Add drug</Button>
-                            <Button mode="outlined" color="#81d3f9" style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}}
+                        <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center',  marginTop: '10%', marginBottom: '10%'}}>
+                            <Button labelStyle={{color:'white'}} style={{alignSelf: 'center', width: 200}} mode="contained" color="#64b5f6" 
+                            // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
+                            onPress={() => navigation.navigate("List")}
+                            >Add new medicine</Button>
+                            {/* <Button labelStyle={{color:'white'}} style={{alignSelf: 'center', width: 200}} mode="contained" color="#64b5f6"
                             onPress={() => navigation.navigate("Search")}
-                            >Buy drug</Button>
+                            >Buy medicine</Button> */}
                         </View>
                     <Subheading>Notifications</Subheading>
+                        <View style={{marginTop: '2%'}}>
+                            {/* LIST -> SWIPE*/}
+                            <List.Section>
+                                <Divider />
+                                <List.Item
+                                    title="Take Paracetamol"
+                                    description="Alarm at 6:00 PM"
+                                    left={props => <List.Icon {...props} icon="pill" />}
+                                />
+                                <Divider />
+                                <List.Item
+                                    title="Take Vitamin C"
+                                    description="Alarm at 6:30 PM"
+                                    left={props => <List.Icon {...props} icon="pill" />}
+                                />
+                                <Divider />
+                                <List.Item
+                                    title="Only 3x Panadol pills left"
+                                    description="Reorder medicine"
+                                    left={props => <List.Icon {...props} icon="cart-outline" />}
+                                />
+                                <Divider />
+                            </List.Section>
+                        </View>
             </View>
        </MainLayout>
     );

@@ -20,7 +20,7 @@ const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: "#81d3f9",
+    primary: "#64b5f6",
     accent: 'yellow',
   },
 };
