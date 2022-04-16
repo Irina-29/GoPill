@@ -3,8 +3,10 @@ import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from "./Home";
 import ItemScreen from "./Items";
+import ScheduleScreen from "./Schedule";
 import HomeRootScreen from "./HomeRoot";
 import ItemListScreen from "./ItemList";
+import ScheduleListScreen from "./ScheduleList";
 
 //https://reactnavigation.org/docs/tab-based-navigation
 const Tab = createBottomTabNavigator();
@@ -37,8 +39,8 @@ const MainNavigator = () => (
         />
         <Tab.Screen
             //SCHEDULE!!!
-            name="Items"
-            component={ItemListScreen}
+            name="Schedule"
+            component={ScheduleListScreen}
             options={{
                 headerShown: false,
                 tabBarLabel: 'Schedule',
@@ -50,6 +52,7 @@ const MainNavigator = () => (
         <Tab.Screen
             //SEARCH!!!
             name="Search"
+            //Search PAGE!!!
             component={ItemScreen}
             options={{
                 headerShown: false,
