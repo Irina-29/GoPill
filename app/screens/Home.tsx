@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainLayout from "./Layout";
 import { Subheading, Button, Appbar, Avatar, List, Divider } from "react-native-paper";
-import {TouchableOpacity, View, Image, Text } from "react-native";
+import {TouchableOpacity, View, Image, Text, ScrollView } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Stack = createNativeStackNavigator();
@@ -24,15 +24,11 @@ const HomeScreen = ({ navigation }: any) => {
 
     return (
         <MainLayout>
-            <Appbar.Header style={{ backgroundColor: '#64b5f6'}}>
-                <TouchableOpacity style={{marginBottom: '6%', marginLeft: '2%'}} onPress={() => navigation.navigate("Profile")}>
+            <Appbar.Header style={{ backgroundColor: '#64b5f6', bottom: 10, left: 8}}>
+                <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
                     <Avatar.Image size={65} source={require('./assets/avatar.png')} />
                 </TouchableOpacity>
-                <Appbar.Content color={'white'} style={{marginBottom: '6%', marginLeft: '2%'}} title={`Hello, ${user?.name || user?.email}!`} />
-                {/* <Appbar.Action icon="logout" onPress={() => navigation.navigate("Login")}/> */}
-                {/* <TouchableOpacity style={{marginBottom: '6%', marginLeft: '2%'}} onPress={() => navigation.navigate("Login")}>
-                    <Image style={{width: 38, height: 38, marginBottom: '6%', marginRight: '2%'}} source={require('./assets/cog-outline.png')}/>
-                </TouchableOpacity> */}
+                <Appbar.Content color={'white'} title={`Hello, ${user?.name || user?.email}!`} />
             </Appbar.Header>
             <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column', marginTop: '5%', marginLeft: '5%', marginRight: '5%'}}>
                     <Subheading>Quick Action</Subheading>
@@ -48,6 +44,7 @@ const HomeScreen = ({ navigation }: any) => {
                     <Subheading>Notifications</Subheading>
                         <View style={{marginTop: '2%'}}>
                             {/* LIST -> SWIPE*/}
+                            <ScrollView>
                             <List.Section>
                                 <Divider />
                                 <List.Item
@@ -63,12 +60,19 @@ const HomeScreen = ({ navigation }: any) => {
                                 />
                                 <Divider />
                                 <List.Item
-                                    title="Only 3x Panadol pills left"
+                                    title="Only 3x Paracetamol pills left"
                                     description="Reorder medicine"
                                     left={props => <List.Icon {...props} icon="cart-outline" />}
                                 />
                                 <Divider />
+                                <List.Item
+                                    title="SALE 60% OFF on Nurofen"
+                                    description="CVS Pharmacy"
+                                    left={props => <List.Icon {...props} icon="sale" />}
+                                />
+                                <Divider />
                             </List.Section>
+                            </ScrollView>
                         </View>
             </View>
        </MainLayout>
