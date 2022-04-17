@@ -89,7 +89,7 @@ const MyOrdersScreen = ({ navigation }: any) => {
      https://callstack.github.io/react-native-paper/data-table.html
      */
     return <MainLayout>
-        <Appbar.Header style={{ backgroundColor: '#64b5f6', bottom: 10, left: 8 }}>
+        <Appbar.Header style={{ backgroundColor: '#64b5f6', bottom: 10 }}>
             <Appbar.BackAction color="white" onPress={() => navigation.navigate("Profile")} />
             <Appbar.Content color={'white'} title={`My Orders`} />
         </Appbar.Header>
