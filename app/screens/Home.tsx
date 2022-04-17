@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainLayout from "./Layout";
 import { Subheading, Button, Appbar, Avatar, List, Divider } from "react-native-paper";
-import {TouchableOpacity, View, Image, Text } from "react-native";
+import {TouchableOpacity, View, Image, Text, ScrollView } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Stack = createNativeStackNavigator();
@@ -48,6 +48,7 @@ const HomeScreen = ({ navigation }: any) => {
                     <Subheading>Notifications</Subheading>
                         <View style={{marginTop: '2%'}}>
                             {/* LIST -> SWIPE*/}
+                            <ScrollView>
                             <List.Section>
                                 <Divider />
                                 <List.Item
@@ -63,12 +64,19 @@ const HomeScreen = ({ navigation }: any) => {
                                 />
                                 <Divider />
                                 <List.Item
-                                    title="Only 3x Panadol pills left"
+                                    title="Only 3x Paracetamol pills left"
                                     description="Reorder medicine"
                                     left={props => <List.Icon {...props} icon="cart-outline" />}
                                 />
                                 <Divider />
+                                <List.Item
+                                    title="SALE 60% OFF on Nurofen"
+                                    description="CVS Pharmacy"
+                                    left={props => <List.Icon {...props} icon="sale" />}
+                                />
+                                <Divider />
                             </List.Section>
+                            </ScrollView>
                         </View>
             </View>
        </MainLayout>

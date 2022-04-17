@@ -34,7 +34,7 @@ const ItemListScreen = ({ navigation }: any) => {
                                 <List.Item
                                     style={{marginLeft:"2%"}}
                                     title="Paracetamol"
-                                    description="12x pills"
+                                    description="3x pills"
                                     left={props => <List.Icon {...props} icon="pill" />} />
                                 </TouchableOpacity>
                                 <Divider />
