@@ -1,43 +1,95 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainLayout from "./Layout";
-import { Button, DataTable, List, Paragraph } from "react-native-paper";
+import { Button, DataTable, Title, List, Paragraph, Appbar, Avatar, Card, } from "react-native-paper";;
+import { AsyncStorage, TouchableOpacity, View, Text, StyleProp, ViewStyle, TextStyle, ScrollView, Dimensions } from "react-native";
+import {
+    Tabs,
+    TabScreen,
+    useTabIndex,
+    useTabNavigation,
+} from 'react-native-paper-tabs';
+import MapView from "react-native-maps";
+import OrderCard, { Order } from "./OrderCard";
+
+const renderOrders = (Orders: Order[]) => {
+    return (Orders.map(order => <OrderCard order={order}></OrderCard>
+        )
+    )
+}
 const MyOrdersScreen = ({ navigation }: any) => {
 
-    const deliveredData = [{ id: 'item1' }, { id: 'item2' }]
-    const processingData = [{ id: 'item3' }, { id: 'item4' }]
+    const deliveredData: Order[] = [
+        {
+            amount: 120,
+            date: "05-12-2009",
+            id: 12486383,
+            quantity: 4,
+            status: "delivered"
+        },
+        {
+            amount: 120,
+            date: "05-12-2009",
+            id: 12486354,
+            quantity: 4,
+            status: "delivered"
+        },
+        {
+            amount: 120,
+            date: "05-12-2009",
+            id: 12486233435,
+            quantity: 4,
+            status: "delivered"
+        },
+        {
+            amount: 120,
+            date: "05-12-2009",
+            id: 1248638322,
+            quantity: 4,
+            status: "delivered"
+        }
+    ]
+    const processingData: Order[] = [
+        {
+            amount: 120,
+            date: "05-12-2009",
+            id: 12486383,
+            quantity: 4,
+            status: "processing"
+        }
+    ]
+    const [user, setUser] = useState<{ name: string, email: string }>();
 
-    const [data, setData] = useState<{ id?: string }[]>(deliveredData);
-    const [selection, setSelection] = useState<string>("delivered");
+    useEffect(() => {
+        const fetchUser = async () => {
+            const storedUser = await AsyncStorage.getItem('@user');
+            if (!!storedUser) {
+                setUser(JSON.parse(storedUser));
+            }
+        }
+        fetchUser();
+    }, [])
 
     /**
      https://callstack.github.io/react-native-paper/data-table.html
      */
     return <MainLayout>
-        <DataTable.Row>
-            <DataTable.Cell>
-                <Button color={selection === 'delivered' ? '#64b5f6' : 'white'} 
-                labelStyle={{color : selection === 'delivered' ? 'white' : '#64b5f6'}}
-                mode="contained" 
-                onPress={() => { setSelection("delivered"); setData(deliveredData) }}>Delivered</Button>
-            </DataTable.Cell>
-            <DataTable.Cell>
-                <Button color={selection === 'proccessing' ? '#64b5f6' : 'white'} 
-                labelStyle={{color : selection === 'proccessing' ? 'white' : '#64b5f6'}}
-                mode="contained" 
-                onPress={() => { setSelection("proccessing"); setData(processingData) }}>Processing</Button>
-            </DataTable.Cell>
-        </DataTable.Row>
-        <DataTable>
-            <DataTable.Header>
-                <DataTable.Title>Item</DataTable.Title>
-                <DataTable.Title numeric>Quantity</DataTable.Title>
-            </DataTable.Header>
-            {data.map(d => <DataTable.Row key={d.id}>
-                <DataTable.Cell>{d.id}</DataTable.Cell>
-            </DataTable.Row>)}
-        </DataTable>
-
+        <Appbar.Header style={{ backgroundColor: '#64b5f6', bottom: 10, left: 8 }}>
+            <Appbar.BackAction color="white" onPress={() => navigation.navigate("Profile")} />
+            <Appbar.Content color={'white'} title={`My Orders`} />
+        </Appbar.Header>
+        <Tabs dark={true}>
+            <TabScreen label="Processing">
+                <ScrollView>
+                    {renderOrders(processingData)}
+                </ScrollView>
+            </TabScreen>
+            <TabScreen label="Delivered">
+                <ScrollView>
+                    {renderOrders(deliveredData)}
+                </ScrollView>
+            </TabScreen>
+        </Tabs>
     </MainLayout >
 }
 

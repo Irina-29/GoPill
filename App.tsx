@@ -6,6 +6,7 @@ import LoginScreen from './app/screens/Login';
 import MainNavigator from './app/screens/Main';
 import { LogBox } from 'react-native';
 import RegisterScreen from './app/screens/Register';
+import { theme } from './theme';
 
 LogBox.ignoreLogs([
   /^AsyncStorage has been extracted from react-native/,
@@ -16,14 +17,6 @@ LogBox.ignoreLogs([
 const Stack = createNativeStackNavigator();
 
 //https://callstack.github.io/react-native-paper/getting-started.html
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: "#64b5f6",
-    accent: 'yellow',
-  },
-};
 
 function App() {
   return (
