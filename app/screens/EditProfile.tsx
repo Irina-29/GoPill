@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "./Layout";
-import { Appbar, Avatar, Button, Divider, List, Paragraph } from "react-native-paper";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { AsyncStorage, TouchableOpacity } from "react-native";
-import EditProfile from "./EditProfile";
-import MyOrdersScreen from "./MyOrders";
-import SettingsForApp from "./Settings";
-const ProfileStack = createNativeStackNavigator();
-const ProfileScreen = ({ navigation }: any) => {
+import { Appbar, Avatar, Button, Divider, Paragraph } from "react-native-paper";
+import {AsyncStorage, TouchableOpacity } from "react-native";
+const EditProfile = ({ navigation }: any) => {
     const [user, setUser] = useState<{ name: string, email: string }>();
 
     useEffect(() => {
@@ -38,4 +33,4 @@ const ProfileScreen = ({ navigation }: any) => {
     );
 }
 
-export default ProfileScreen;
+export default EditProfile;
