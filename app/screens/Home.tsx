@@ -24,15 +24,11 @@ const HomeScreen = ({ navigation }: any) => {
 
     return (
         <MainLayout>
-            <Appbar.Header style={{ backgroundColor: '#64b5f6'}}>
-                <TouchableOpacity style={{marginBottom: '6%', marginLeft: '2%'}} onPress={() => navigation.navigate("Profile")}>
+            <Appbar.Header style={{ backgroundColor: '#64b5f6', bottom: 10, left: 8}}>
+                <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
                     <Avatar.Image size={65} source={require('./assets/avatar.png')} />
                 </TouchableOpacity>
-                <Appbar.Content color={'white'} style={{marginBottom: '6%', marginLeft: '2%'}} title={`Hello, ${user?.name || user?.email}!`} />
-                {/* <Appbar.Action icon="logout" onPress={() => navigation.navigate("Login")}/> */}
-                {/* <TouchableOpacity style={{marginBottom: '6%', marginLeft: '2%'}} onPress={() => navigation.navigate("Login")}>
-                    <Image style={{width: 38, height: 38, marginBottom: '6%', marginRight: '2%'}} source={require('./assets/cog-outline.png')}/>
-                </TouchableOpacity> */}
+                <Appbar.Content color={'white'} title={`Hello, ${user?.name || user?.email}!`} />
             </Appbar.Header>
             <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column', marginTop: '5%', marginLeft: '5%', marginRight: '5%'}}>
                     <Subheading>Quick Action</Subheading>
