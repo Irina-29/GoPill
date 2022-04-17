@@ -23,27 +23,17 @@ const MyOrdersScreen = ({ navigation }: any) => {
         {
             amount: 120,
             date: "05-12-2009",
-            id: 124863835463,
+            id: 12486,
             quantity: 4,
             status: "Delivered",
             bottle: "4",
             medicine: "Paracetamol ",
-            no: 6
-        },
-        {
-            amount: 120,
-            date: "05-12-2009",
-            id: 12486354464356,
-            quantity: 4,
-            status: "Delivered",
-            bottle: "4",
-            medicine: "Paracetamol",
             no: 4
         },
         {
             amount: 120,
             date: "05-12-2009",
-            id: 12486233435464,
+            id: 12486,
             quantity: 4,
             status: "Delivered",
             bottle: "4",
@@ -53,19 +43,29 @@ const MyOrdersScreen = ({ navigation }: any) => {
         {
             amount: 120,
             date: "05-12-2009",
-            id: 124863832234536,
+            id: 12486,
             quantity: 4,
             status: "Delivered",
             bottle: "4",
             medicine: "Paracetamol",
             no: 2
+        },
+        {
+            amount: 120,
+            date: "05-12-2009",
+            id: 12486,
+            quantity: 4,
+            status: "Delivered",
+            bottle: "4",
+            medicine: "Paracetamol",
+            no: 1
         }
     ]
     const processingData: Order[] = [
         {
             amount: 120,
             date: "05-12-2009",
-            id: 12486383243563,
+            id: 12486,
             quantity: 4,
             status: "Processing",
             bottle: "4",

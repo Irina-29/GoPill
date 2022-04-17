@@ -4,11 +4,14 @@ import MapView, { Marker } from "react-native-maps";
 import { Avatar, Button, Card, Paragraph, TextInput } from "react-native-paper";
 import ItemEditScreen from "./ItemEdit";
 import MainLayout from "./Layout";
+
 const LeftContent = (date: string) => () => <Text>{date}</Text>
+
 const lineStyle: StyleProp<ViewStyle> = {
     display: 'flex',
     flexDirection: 'row'
 }
+
 export interface Order {
     id: number
     date: string
@@ -19,13 +22,16 @@ export interface Order {
     no: number,
     status: "Delivered" | "Processing"
 }
+
 const multiLineStyle: StyleProp<ViewStyle> = {
     ...lineStyle,
     justifyContent: 'space-between'
 }
+
 const boldStyle: StyleProp<TextStyle> = {
     fontWeight: 'bold'
 }
+
 const mapStyles: any = {
     container: {
         flex: 1,
@@ -60,23 +66,29 @@ const OrderCard = ({ order }: { order: Order }) => {
                     <Text style={boldStyle}>{`${order.amount} $`}</Text>
                 </View>
             </View>
-            {expanded && order.status === 'Processing' && <View style={mapStyles.container}>
-                <View style={lineStyle}>
-                    <Text>Medicine: </Text>
-                    <Text style={boldStyle}>{order.medicine}</Text>
+            {expanded && order.status === 'Processing' && 
+            <View>
+                <View style={{marginTop: '4%'}}>
+                    <View style={lineStyle}>
+                        <Text>Medicine: </Text>
+                        <Text style={boldStyle}>{order.medicine}</Text>
+                    </View>
+                    <View style={lineStyle}>
+                        <Text>Price: </Text>
+                        <Text style={boldStyle}>{`${order.bottle} $`}</Text>
+                    </View>
                 </View>
-                <View style={lineStyle}>
-                    <Text>Price: </Text>
-                    <Text style={boldStyle}>{`${order.bottle} $`}</Text>
+                <View style={mapStyles.container}>
+                    <MapView style={mapStyles.map} initialRegion={{ latitude: 45, longitude: 26, latitudeDelta: 0.05, longitudeDelta: 0.05 }}>
+                        <Marker coordinate={{ latitude: 45, longitude: 26 }}>
+                            <Avatar.Icon icon="car-side" size={30} />
+                        </Marker>
+                    </MapView>
                 </View>
-                <MapView style={mapStyles.map} initialRegion={{ latitude: 45, longitude: 26, latitudeDelta: 0.05, longitudeDelta: 0.05 }}>
-                    <Marker coordinate={{ latitude: 45, longitude: 26 }}>
-                        <Avatar.Icon icon="car-side" size={30} />
-                    </Marker>
-                </MapView>
             </View>
             }
-            {expanded && order.status === 'Delivered' && <View style={mapStyles.container}>
+            {expanded && order.status === 'Delivered' && 
+            <View style={{marginTop: '4%'}}>
                 <View style={lineStyle}>
                     <Text>Medicine: </Text>
                     <Text style={boldStyle}>{order.medicine}</Text>
