@@ -120,7 +120,7 @@ const ItemListScreen = ({ navigation }: any) => {
                         style={{ width: "16%", top: 452, left: 272, backgroundColor: "#64b5f6", position: 'absolute' }}
                         icon="plus"
                         color="white"
-                        onPress={() => console.log('Pressed')} />
+                        onPress={() => navigation.navigate("DrugsList")} />
             </View>
         </MainLayout></>
     );

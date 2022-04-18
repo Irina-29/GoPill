@@ -7,6 +7,7 @@ import ProfileScreen from "./Profile";
 import MyOrdersScreen from "./MyOrders";
 import SettingsForApp from "./Settings";
 import EditProfile from "./EditProfile";
+import DrugsScreen from "./DrugsList";
 
 //https://reactnavigation.org/docs/hello-react-navigation
 const ItemStack = createNativeStackNavigator();
@@ -19,6 +20,7 @@ const HomeRootScreen = () => {
         <ItemStack.Screen name="MyOrders" component={MyOrdersScreen} options={{ headerShown: false }} />
         <ItemStack.Screen name="Settings" component={SettingsForApp} options={{ headerShown: false }} />
         <ItemStack.Screen name="EditProfile" component={EditProfile} options={{ headerShown: false }} />
+        <ItemStack.Screen name="DrugsList" component={DrugsScreen} options={{ headerShown: false }} />
     </ItemStack.Navigator>
 }
 
