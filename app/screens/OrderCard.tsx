@@ -99,7 +99,6 @@ const OrderCard = ({ order }: { order: Order }) => {
                 </View>
             </View>}
         </Card.Content>
-
         <Card.Actions style={multiLineStyle}>
             <Button onPress={() => setExpanded(!expanded)}>{expanded ? "Hide Details" : "Show Details"}
             </Button>

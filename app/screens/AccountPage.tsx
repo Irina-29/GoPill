@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "./Layout";
 import { Appbar, Avatar, Button, Divider, Paragraph } from "react-native-paper";
-import {AsyncStorage, TouchableOpacity } from "react-native";
-const EditProfile = ({ navigation }: any) => {
+import { AsyncStorage, TouchableOpacity } from "react-native";
+const AccountProfile = ({ navigation }: any) => {
     const [user, setUser] = useState<{ name: string, email: string }>();
 
     useEffect(() => {
@@ -17,10 +17,8 @@ const EditProfile = ({ navigation }: any) => {
     return (
         <MainLayout>
             <Appbar.Header style={{ backgroundColor: '#64b5f6' }}>
-                <TouchableOpacity style={{ marginBottom: '6%', marginLeft: '2%' }} onPress={() => navigation.navigate("Profile")}>
-                    <Avatar.Image size={65} source={require('./assets/avatar.png')} />
-                </TouchableOpacity>
-                <Appbar.Content color={'white'} style={{ marginBottom: '6%', marginLeft: '2%' }} title={`Hello, ${user?.name || user?.email}!`} />
+                <Appbar.BackAction color="white" onPress={() => navigation.navigate("Profile")} />
+                <Appbar.Content color={'white'} style={{ marginBottom: '6%', marginLeft: '2%' }} title={`Account`} />
             </Appbar.Header>
             <Button icon="cart" mode="outlined" onPress={() => navigation.navigate('MyOrders')}>
                 My orders
@@ -33,4 +31,4 @@ const EditProfile = ({ navigation }: any) => {
     );
 }
 
-export default EditProfile;
+export default AccountProfile;

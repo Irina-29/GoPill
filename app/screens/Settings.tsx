@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "./Layout";
-import { Appbar, Avatar, Button, Divider, Paragraph } from "react-native-paper";
+import { Appbar, Avatar, Button, Divider, Drawer, Paragraph } from "react-native-paper";
 import {AsyncStorage, TouchableOpacity } from "react-native";
 const SettingsForApp = ({ navigation }: any) => {
     const [user, setUser] = useState<{ name: string, email: string }>();
@@ -17,18 +17,21 @@ const SettingsForApp = ({ navigation }: any) => {
     return (
         <MainLayout>
             <Appbar.Header style={{ backgroundColor: '#64b5f6' }}>
-                <TouchableOpacity style={{ marginBottom: '6%', marginLeft: '2%' }} onPress={() => navigation.navigate("Profile")}>
-                    <Avatar.Image size={65} source={require('./assets/avatar.png')} />
-                </TouchableOpacity>
-                <Appbar.Content color={'white'} style={{ marginBottom: '6%', marginLeft: '2%' }} title={`Hello, ${user?.name || user?.email}!`} />
+                <Appbar.BackAction color="white" onPress={() => navigation.navigate("Profile")} />
+                <Appbar.Content color={'white'} style={{ marginBottom: '6%', marginLeft: '2%' }} title={`Settings`} />
             </Appbar.Header>
-            <Button icon="cart" mode="outlined" onPress={() => navigation.navigate('MyOrders')}>
-                My orders
-            </Button>
-            <Divider />
-            <Button icon="logout" mode="outlined" onPress={() => navigation.navigate('Login')}>
-                Log out
-            </Button>
+            <Drawer.Item
+                style={{ backgroundColor: 'white' }}
+                icon="bell"
+                label="Allow notifications"
+                onPress={() => navigation.navigate('Login')}
+            />
+            <Drawer.Item
+                style={{ backgroundColor: 'white' }}
+                icon="brightness-4"
+                label="Theme"
+                onPress={() => navigation.navigate('Login')}
+            />
         </MainLayout>
     );
 }

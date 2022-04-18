@@ -23,7 +23,7 @@ const MyOrdersScreen = ({ navigation }: any) => {
         {
             amount: 120,
             date: "05-12-2009",
-            id: 12486,
+            id: 12480,
             quantity: 4,
             status: "Delivered",
             bottle: "4",
@@ -33,7 +33,7 @@ const MyOrdersScreen = ({ navigation }: any) => {
         {
             amount: 120,
             date: "05-12-2009",
-            id: 12486,
+            id: 12481,
             quantity: 4,
             status: "Delivered",
             bottle: "4",
@@ -53,7 +53,7 @@ const MyOrdersScreen = ({ navigation }: any) => {
         {
             amount: 120,
             date: "05-12-2009",
-            id: 12486,
+            id: 12483,
             quantity: 4,
             status: "Delivered",
             bottle: "4",
@@ -65,7 +65,7 @@ const MyOrdersScreen = ({ navigation }: any) => {
         {
             amount: 120,
             date: "05-12-2009",
-            id: 12486,
+            id: 12484,
             quantity: 4,
             status: "Processing",
             bottle: "4",
