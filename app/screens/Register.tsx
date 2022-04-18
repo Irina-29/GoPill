@@ -23,7 +23,7 @@ const RegisterScreen = ({ navigation }: any) => {
         }
         else {
             AsyncStorage.setItem("@user", JSON.stringify({
-                name, email
+                name, email, password
             })).then(() => navigation.navigate("Login"))
         }
     };
