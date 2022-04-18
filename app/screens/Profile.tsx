@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import MainLayout from "./Layout";
 import { Appbar, Avatar, Button, Divider, Drawer, List, Paragraph } from "react-native-paper";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { AsyncStorage, TouchableOpacity } from "react-native";
+import { AsyncStorage, Dimensions, TouchableOpacity } from "react-native";
 import MyOrdersScreen from "./MyOrders";
 import SettingsForApp from "./Settings";
 const ProfileStack = createNativeStackNavigator();
@@ -25,31 +25,43 @@ const ProfileScreen = ({ navigation }: any) => {
                 <Appbar.Content color={'white'} title={`Profile`} />
             </Appbar.Header>
             <Drawer.Item
-                style={{ backgroundColor: 'white' }}
+                style={{ backgroundColor: 'white',
+                width: Dimensions.get('window').width - 30,
+                height: Dimensions.get('window').height / 10,
+                marginTop: 25
+                }}
                 icon="cart"
                 label="My Orders"
                 onPress={() => navigation.navigate('MyOrders')}
             />
             <Drawer.Item
-                style={{ backgroundColor: 'white' }}
+                style={{ backgroundColor: 'white',
+                width: Dimensions.get('window').width - 30,
+                height: Dimensions.get('window').height / 10 }}
                 icon="pencil-outline"
                 label="Account"
                 onPress={() => navigation.navigate('AccountPage')}
             />
             <Drawer.Item
-                style={{ backgroundColor: 'white' }}
+                style={{ backgroundColor: 'white',
+                width: Dimensions.get('window').width - 30,
+                height: Dimensions.get('window').height / 10}}
                 icon="cog-outline"
                 label="Settings"
                 onPress={() => navigation.navigate('Settings')}
             />
             <Drawer.Item
-                style={{ backgroundColor: 'white' }}
+                style={{ backgroundColor: 'white',
+                width: Dimensions.get('window').width - 30,
+                height: Dimensions.get('window').height / 10 }}
                 icon="help-circle"
                 label="Support"
                 onPress={() => navigation.navigate('Support')}
             />
             <Drawer.Item
-                style={{ backgroundColor: 'white' }}
+                style={{ backgroundColor: 'white',
+                width: Dimensions.get('window').width - 30,
+                height: Dimensions.get('window').height / 10 }}
                 icon="logout"
                 label="Log out"
                 onPress={() => navigation.navigate('Login')}
