@@ -11,11 +11,10 @@ const ScheduleListScreen = ({ navigation }: any) => {
      */
     const [visible, setVisible] = React.useState(false);
     const [visibleInTimeout, setVisibleInTimeout] = React.useState(false);
-  
+
     const showModal = () => setVisible(true);
     const hideModal = () => setVisible(false);
-    const containerStyle = {backgroundColor: 'white', padding: 20};
-
+    const containerStyle = { backgroundColor: 'white', padding: 20, marginRight: 15, marginLeft: 15, borderRadius: 5 };
     const styles = StyleSheet.create({
         container: {
             backgroundColor: '#64b5f6',
@@ -24,22 +23,26 @@ const ScheduleListScreen = ({ navigation }: any) => {
     });
     useEffect(() => {
         const timer = setTimeout(() => {
-          showModal()
+            showModal()
         }, 1000);
         return () => clearTimeout(timer);
-      }, []);
+    }, []);
     return (
         <><Portal>
-            <Modal visible={visible} onDismiss={hideModal} contentContainerStyle = {containerStyle}>
-            <Headline style={{ alignSelf: 'center', color:"#64b5f6"}}>Take Paracetamol</Headline>
-                <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', marginTop: '10%', marginBottom: '10%' }}>
-                    <Button labelStyle={{ color: 'red' }} style={{ alignSelf: 'flex-start', width: 150 }} mode="contained" color="white"
-                    // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
-                    onPress={() => hideModal()}
+            <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
+                <Headline style={{ alignSelf: 'center', color: "#64b5f6" }}>Take Paracetamol</Headline>
+                <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', marginTop: '5%', marginBottom: '5%' }}>
+                    <Button labelStyle={{ color: 'white', fontSize: 10}} style={{ alignSelf: 'flex-start', width: 50 }} mode="contained" color="#F95C6D"
+                        // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
+                        onPress={() => hideModal()}
                     >Skip</Button>
-                    <Button labelStyle={{ color: 'green' }} style={{ alignSelf: 'center', width: 150 }} mode="contained" color="white"
-                    // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
-                    onPress={() => hideModal()}
+                    <Button labelStyle={{ color: 'white', fontSize: 10 }} style={{ alignSelf: 'center', width: 120 }} mode="contained" color="#EBEF00"
+                        // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
+                        onPress={() => hideModal()}
+                    >Snooze 5 min</Button>
+                    <Button labelStyle={{ color: 'white', fontSize: 10 }} style={{ alignSelf: 'center', width: 50 }} mode="contained" color="#81FDA7"
+                        // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
+                        onPress={() => hideModal()}
                     >Ok</Button>
                     {/* <Button labelStyle={{color:'white'}} style={{alignSelf: 'center', width: 200}} mode="contained" color="#64b5f6"
                             onPress={() => navigation.navigate("Search")}
@@ -47,88 +50,88 @@ const ScheduleListScreen = ({ navigation }: any) => {
                 </View>
             </Modal>
         </Portal>
-        <MainLayout>
-            <Appbar.Header style={styles.container}>
-                <Appbar.BackAction color="white" onPress={() => navigation.navigate("Home")}/>
-                <Appbar.Content color="white" title="My Schedule"/>
-            </Appbar.Header>
-            <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column' }}>
-            {/* <Headline style={{ textAlign: "center", lineHeight: 80, color: 'white', backgroundColor: '#64b5f6' }}>My Schedule</Headline> */}
-                <ScrollView stickyHeaderIndices={[0]}>
-                    <View style={{backgroundColor:"white"}}>
-                        <Subheading style={{marginLeft:"4%", marginBottom: "4%", marginTop: "4%"}}>Upcoming alarms</Subheading>
-                        <Divider />
-                    </View>
-                    {/* LIST -> SWIPE*/}
-                    <List.Section style={{marginTop: "0%"}}>
-                        <List.Item
-                            style={{marginLeft:"2%"}}
-                            title="Take Paracetamol"
-                            description="Today, 6:00 PM"
-                            left={props => <List.Icon {...props} icon="pill" />}
-                        />
-                        <Divider />
-                        <List.Item
-                            style={{marginLeft:"2%"}}
-                            title="Take Vitamin C"
-                            description="Today, 6:30 PM"
-                            left={props => <List.Icon {...props} icon="pill" />}
-                        />
-                        <Divider />
-                        <List.Item
-                            style={{marginLeft:"2%"}}
-                            title="Take Vitamin D3"
-                            description="Tomorrow, 12:00 PM"
-                            left={props => <List.Icon {...props} icon="pill" />}
-                        />
-                        <Divider />
-                        <List.Item
-                            style={{marginLeft:"2%"}}
-                            title="Take Nurofen"
-                            description="Monday, 26th May, 11:00 AM"
-                            left={props => <List.Icon {...props} icon="pill" />}
-                        />
-                        <Divider />
-                        <List.Item
-                            style={{marginLeft:"2%"}}
-                            title="Take Aspirin"
-                            description="Tuesday, 27th May, 3:00 PM"
-                            left={props => <List.Icon {...props} icon="pill" />}
-                        />
-                        <Divider />
-                        <List.Item
-                            style={{marginLeft:"2%"}}
-                            title="Take Calcivid"
-                            description="Wednesday, 28th May, 8:00 AM"
-                            left={props => <List.Icon {...props} icon="pill" />}
-                        />
-                        
-                        <Divider />
-                        <List.Item
-                            style={{marginLeft:"2%"}}
-                            title="Take Nurofen"
-                            description="Monday, 26th May, 11:00 AM"
-                            left={props => <List.Icon {...props} icon="pill" />}
-                        />
-                        <Divider />
-                        <List.Item
-                            style={{marginLeft:"2%"}}
-                            title="Take Vitamin D3"
-                            description="Tomorrow, 12:00 PM"
-                            left={props => <List.Icon {...props} icon="pill" />}
-                        />
-                        <Divider />
-                        <List.Item
-                            style={{marginLeft:"2%"}}
-                            title="Take Vitamin D3"
-                            description="Tomorrow, 12:00 PM"
-                            left={props => <List.Icon {...props} icon="pill" />}
-                        />
+            <MainLayout>
+                <Appbar.Header style={styles.container}>
+                    <Appbar.BackAction color="white" onPress={() => navigation.navigate("Home")} />
+                    <Appbar.Content color="white" title="My Schedule" />
+                </Appbar.Header>
+                <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column' }}>
+                    {/* <Headline style={{ textAlign: "center", lineHeight: 80, color: 'white', backgroundColor: '#64b5f6' }}>My Schedule</Headline> */}
+                    <ScrollView stickyHeaderIndices={[0]}>
+                        <View style={{ backgroundColor: "white" }}>
+                            <Subheading style={{ marginLeft: "4%", marginBottom: "4%", marginTop: "4%" }}>Upcoming alarms</Subheading>
+                            <Divider />
+                        </View>
+                        {/* LIST -> SWIPE*/}
+                        <List.Section style={{ marginTop: "0%" }}>
+                            <List.Item
+                                style={{ marginLeft: "2%" }}
+                                title="Take Paracetamol"
+                                description="Today, 6:00 PM"
+                                left={props => <List.Icon {...props} icon="pill" />}
+                            />
+                            <Divider />
+                            <List.Item
+                                style={{ marginLeft: "2%" }}
+                                title="Take Vitamin C"
+                                description="Today, 6:30 PM"
+                                left={props => <List.Icon {...props} icon="pill" />}
+                            />
+                            <Divider />
+                            <List.Item
+                                style={{ marginLeft: "2%" }}
+                                title="Take Vitamin D3"
+                                description="Tomorrow, 12:00 PM"
+                                left={props => <List.Icon {...props} icon="pill" />}
+                            />
+                            <Divider />
+                            <List.Item
+                                style={{ marginLeft: "2%" }}
+                                title="Take Nurofen"
+                                description="Monday, 26th May, 11:00 AM"
+                                left={props => <List.Icon {...props} icon="pill" />}
+                            />
+                            <Divider />
+                            <List.Item
+                                style={{ marginLeft: "2%" }}
+                                title="Take Aspirin"
+                                description="Tuesday, 27th May, 3:00 PM"
+                                left={props => <List.Icon {...props} icon="pill" />}
+                            />
+                            <Divider />
+                            <List.Item
+                                style={{ marginLeft: "2%" }}
+                                title="Take Calcivid"
+                                description="Wednesday, 28th May, 8:00 AM"
+                                left={props => <List.Icon {...props} icon="pill" />}
+                            />
 
-                    </List.Section>
-                </ScrollView>
-            </View>
-        </MainLayout></>
+                            <Divider />
+                            <List.Item
+                                style={{ marginLeft: "2%" }}
+                                title="Take Nurofen"
+                                description="Monday, 26th May, 11:00 AM"
+                                left={props => <List.Icon {...props} icon="pill" />}
+                            />
+                            <Divider />
+                            <List.Item
+                                style={{ marginLeft: "2%" }}
+                                title="Take Vitamin D3"
+                                description="Tomorrow, 12:00 PM"
+                                left={props => <List.Icon {...props} icon="pill" />}
+                            />
+                            <Divider />
+                            <List.Item
+                                style={{ marginLeft: "2%" }}
+                                title="Take Vitamin D3"
+                                description="Tomorrow, 12:00 PM"
+                                left={props => <List.Icon {...props} icon="pill" />}
+                            />
+
+                        </List.Section>
+                    </ScrollView>
+                </View>
+            </MainLayout></>
     );
 }
 
