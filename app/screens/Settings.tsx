@@ -16,9 +16,9 @@ const SettingsForApp = ({ navigation }: any) => {
     }, [])
     return (
         <MainLayout>
-            <Appbar.Header style={{ backgroundColor: '#64b5f6' }}>
+            <Appbar.Header style={{ backgroundColor: '#64b5f6', bottom: 10 }}>
                 <Appbar.BackAction color="white" onPress={() => navigation.navigate("Profile")} />
-                <Appbar.Content color={'white'} style={{ marginBottom: '6%', marginLeft: '2%' }} title={`Settings`} />
+                <Appbar.Content color={'white'} title={`Settings`} />
             </Appbar.Header>
             <Drawer.Item
                 style={{ backgroundColor: 'white' }}

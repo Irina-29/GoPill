@@ -20,9 +20,9 @@ const SupportPage = ({ navigation }: any) => {
     }, [])
     return (
         <MainLayout>
-            <Appbar.Header style={{ backgroundColor: '#64b5f6' }}>
+            <Appbar.Header style={{ backgroundColor: '#64b5f6', bottom: 10 }}>
                 <Appbar.BackAction color="white" onPress={() => navigation.navigate("Profile")} />
-                <Appbar.Content color={'white'} style={{ marginBottom: '6%', marginLeft: '2%' }} title={`Support`} />
+                <Appbar.Content color={'white'} title={`Support`} />
             </Appbar.Header>
             <Button icon="cart" mode="outlined" onPress={() => navigation.navigate('MyOrders')}>
                 My orders
