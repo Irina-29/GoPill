@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "./Layout";
-import { Button, Card, DataTable, Divider, List, Paragraph, Subheading, Title, Headline, Appbar } from "react-native-paper";
+import { Button, Card, DataTable, Divider, Modal, List, Paragraph, Subheading, Title, Headline, Appbar, Portal } from "react-native-paper";
 import { ScrollView, View, StyleSheet } from "react-native";
 
 const ScheduleListScreen = ({ navigation }: any) => {
@@ -9,6 +9,12 @@ const ScheduleListScreen = ({ navigation }: any) => {
     /**
      https://callstack.github.io/react-native-paper/data-table.html
      */
+    const [visible, setVisible] = React.useState(false);
+    const [visibleInTimeout, setVisibleInTimeout] = React.useState(false);
+  
+    const showModal = () => setVisible(true);
+    const hideModal = () => setVisible(false);
+    const containerStyle = {backgroundColor: 'white', padding: 20};
 
     const styles = StyleSheet.create({
         container: {
@@ -16,8 +22,31 @@ const ScheduleListScreen = ({ navigation }: any) => {
             bottom: 10,
         },
     });
-
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          showModal()
+        }, 1000);
+        return () => clearTimeout(timer);
+      }, []);
     return (
+        <><Portal>
+            <Modal visible={visible} onDismiss={hideModal} contentContainerStyle = {containerStyle}>
+            <Headline style={{ alignSelf: 'center', color:"#64b5f6"}}>Take Paracetamol</Headline>
+                <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', marginTop: '10%', marginBottom: '10%' }}>
+                    <Button labelStyle={{ color: 'red' }} style={{ alignSelf: 'flex-start', width: 150 }} mode="contained" color="white"
+                    // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
+                    onPress={() => hideModal()}
+                    >Skip</Button>
+                    <Button labelStyle={{ color: 'green' }} style={{ alignSelf: 'center', width: 150 }} mode="contained" color="white"
+                    // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
+                    onPress={() => hideModal()}
+                    >Ok</Button>
+                    {/* <Button labelStyle={{color:'white'}} style={{alignSelf: 'center', width: 200}} mode="contained" color="#64b5f6"
+                            onPress={() => navigation.navigate("Search")}
+                            >Buy medicine</Button> */}
+                </View>
+            </Modal>
+        </Portal>
         <MainLayout>
             <Appbar.Header style={styles.container}>
                 <Appbar.BackAction color="white" onPress={() => navigation.navigate("Home")}/>
@@ -99,7 +128,7 @@ const ScheduleListScreen = ({ navigation }: any) => {
                     </List.Section>
                 </ScrollView>
             </View>
-        </MainLayout>
+        </MainLayout></>
     );
 }
 
