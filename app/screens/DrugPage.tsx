@@ -10,6 +10,7 @@ const inputStyle: StyleProp<ViewStyle> = {
 };
 
 const DrugDetailScreen = ({ navigation, route }: any) => {
+
         const [drug, setDrug] = useState<Drug>(route.params?.drug || {})
 
         const styles = StyleSheet.create({
@@ -67,10 +68,10 @@ const DrugDetailScreen = ({ navigation, route }: any) => {
                     </List.Accordion>
                 </List.Section>
                 <View style={[stylesItems.container, stylesItems.buttons]}>
-                    <Button labelStyle={{color:'white', lineHeight: 32}} style={{alignSelf: 'center', width: 150, height: 50}} mode="contained" color="#64b5f6"
-                    onPress={() => console.log('Pressed')}
+                    <Button labelStyle={{color:'white', lineHeight: 32}} style={{alignSelf: 'center', width: 150}} mode="contained" color="#64b5f6"
+                    onPress={() => navigation.navigate("ItemList", {drug})}
                     >Add to list</Button>
-                    <Button labelStyle={{color:'white', lineHeight: 32}} style={{alignSelf: 'center', width: 150, height: 50}} mode="contained" color="#64b5f6"
+                    <Button labelStyle={{color:'white', lineHeight: 32}} style={{alignSelf: 'center', width: 150}} mode="contained" color="#64b5f6"
                     onPress={() => console.log('Pressed')}
                     >Find medicine</Button>
                 </View>
