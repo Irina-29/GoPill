@@ -23,7 +23,7 @@ const DrugsScreen = ({ navigation }: any) => {
             image: require('./assets/drugs/advil.jpg'),
             dose: 3,
             description: "Advil provides temporary relief of pain and discomfort from: Headache, Back Pain, Muscle Pain, Period Pain, Dental Pain, Arthritis Pain, Sore Throat Pain, Cold & Flu",
-            prescription: true
+            // prescription: true
         },
         {
             id: 2,

@@ -14,7 +14,7 @@ const ScheduleListScreen = ({ navigation }: any) => {
 
     const showModal = () => setVisible(true);
     const hideModal = () => setVisible(false);
-    const containerStyle = { backgroundColor: 'white', paddingTop: 20, paddingBottom: 20, marginRight: 25, marginLeft: 25, borderRadius: 5 };
+    const containerStyle = { backgroundColor: 'white', paddingTop: 20, paddingBottom: 20, marginRight: 25, marginLeft: 25, borderRadius: 20 };
     const styles = StyleSheet.create({
         container: {
             backgroundColor: '#64b5f6',

@@ -103,7 +103,7 @@ const DrugDetailScreen = ({ navigation, route }: any) => {
                         navigation.navigate("ItemList")
                     },
                     }}>
-                    Hey there! I'm a Snackbar.
+                    Medicine added to list
                 </Snackbar>
                 </ScrollView>
             </MainLayout>

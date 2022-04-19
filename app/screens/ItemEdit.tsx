@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { StyleProp, TouchableOpacity, ViewStyle } from "react-native";
-import { Button, List, Modal, Paragraph, Portal, TextInput } from "react-native-paper";
+import { StyleProp, TouchableOpacity, View, ViewStyle } from "react-native";
+import { Button, Headline, List, Modal, Paragraph, Portal, Subheading } from "react-native-paper";
 import { Drug } from "./DrugCard";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -10,13 +10,36 @@ const ListItem = ({ navigation, drug, onDelete}: any) => {
     const showModal = () => setVisible(true);
     const hideModal = () => setVisible(false);
     
-    const containerStyle = {backgroundColor: 'white', padding: 20};
+    const containerStyle = {
+        backgroundColor: 'white', 
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        paddingTop: 20, paddingBottom: 20, marginRight: 25, marginLeft: 25,
+        borderRadius: 20
+    };
 
         return (
-        <TouchableOpacity onPress={() => onDelete(drug.id)} key={drug.id}>
+        <TouchableOpacity 
+        key={drug.id}
+        onPress={showModal}>
             <Portal>
                 <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
-                    <Paragraph>Example Modal.  Click outside this area to dismiss.</Paragraph>
+                    <Headline style={{ alignSelf: 'center' }}>{drug.name}</Headline>
+                    <Subheading>{`${drug.quantity}x pills left`}</Subheading>
+                    <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', marginTop: '5%', marginBottom: '5%' }}>
+                        <Button labelStyle={{ color: 'white', fontSize: 15, lineHeight: 25 }} style={{ alignSelf: 'center', width: 200, marginBottom: 20, marginTop: 10}} mode="contained" color="#64b5f6"
+                            // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
+                            onPress={() => hideModal()}
+                        >Add to schedule</Button>
+                        <Button labelStyle={{ color: 'white', fontSize: 15, lineHeight: 25 }} style={{ alignSelf: 'center', width: 200}} mode="contained" color="#F95C6D"
+                            // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
+                            onPress={() => onDelete(drug.id)}
+                        >Remove from list</Button>
+                        {/* <Button labelStyle={{color:'white'}} style={{alignSelf: 'center', width: 200}} mode="contained" color="#64b5f6"
+                                onPress={() => navigation.navigate("Search")}
+                                >Buy medicine</Button> */}
+                    </View>
                 </Modal>
             </Portal>
             <List.Item
