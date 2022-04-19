@@ -24,13 +24,6 @@ const SupportPage = ({ navigation }: any) => {
                 <Appbar.BackAction color="white" onPress={() => navigation.navigate("Profile")} />
                 <Appbar.Content color={'white'} title={`Support`} />
             </Appbar.Header>
-            <Button icon="cart" mode="outlined" onPress={() => navigation.navigate('MyOrders')}>
-                My orders
-            </Button>
-            <Divider />
-            <Button icon="logout" mode="outlined" onPress={() => navigation.navigate('Login')}>
-                Log out
-            </Button>
         </MainLayout>
     );
 }
