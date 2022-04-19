@@ -4,14 +4,11 @@ import { Divider, Headline, List, FAB, Modal, Portal, Provider, Button, Paragrap
 import { View, ScrollView, TouchableOpacity, StyleSheet, Text } from "react-native";
 import { Drug } from "./DrugCard";
 import ListItem from "./ItemEdit";
-
-const addItemToList = (drug: Drug[]) => {
-    return <ListItem drug={drug}></ListItem>
-}
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ItemListScreen = ({ navigation, route }: any) => {
 
-    const [drug, setDrug] = useState<Drug>(route.params?.drug || {})
+    const [drugs, setDrugs] = useState<Drug[]>([])
 
     const styles = StyleSheet.create({
         container: {
@@ -19,6 +16,21 @@ const ItemListScreen = ({ navigation, route }: any) => {
             bottom: 10,
         },
     });
+
+    const refresh = () => {
+        // AsyncStorage.setItem('@mydrugs', '[]')
+        AsyncStorage.getItem('@mydrugs').then(drugs => {
+            if (!!drugs) {
+                setDrugs(JSON.parse(drugs));
+            }
+        })
+    }
+
+    const deleteDrug = (id: number) => {
+        AsyncStorage.setItem("@mydrugs", JSON.stringify(drugs.filter(d => d.id !== id))).then(refresh)
+    }
+
+    useEffect(refresh, [])
 
     return (
     <MainLayout>
@@ -29,10 +41,7 @@ const ItemListScreen = ({ navigation, route }: any) => {
         <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column' }}>
             <ScrollView>
                 <List.Section>
-                    <Text>{JSON.stringify(drug)}</Text>
-                    {/* functie -> sa afiseze item in lista cu medicamentul */}
-                    {/* {addItemToList(drug)} */}
-
+                    {drugs.map(d => <ListItem drug = {d} key={d.id} onDelete={deleteDrug}></ListItem>)}
                     {/* <TouchableOpacity onPress={showModal}>
                     <List.Item
                         style={{marginLeft:"2%"}}
@@ -80,7 +89,6 @@ const ItemListScreen = ({ navigation, route }: any) => {
                         description="100x pills"
                         left={props => <List.Icon {...props} icon="pill" />} />
                     </TouchableOpacity> */}
-                    
                 </List.Section>
             </ScrollView>
             <FAB
