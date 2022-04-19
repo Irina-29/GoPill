@@ -72,7 +72,7 @@ const DrugDetailScreen = ({ navigation, route }: any) => {
                     onPress={() => navigation.navigate("ItemList", {drug})}
                     >Add to list</Button>
                     <Button labelStyle={{color:'white', lineHeight: 32}} style={{alignSelf: 'center', width: 150}} mode="contained" color="#64b5f6"
-                    onPress={() => console.log('Pressed')}
+                    onPress={() => navigation.navigate("Search", {drug})}
                     >Find medicine</Button>
                 </View>
                 </ScrollView>

@@ -4,6 +4,7 @@ import DrugsScreen from "./DrugsList";
 import DrugDetailScreen from "./DrugPage";
 import ItemListScreen from "./ItemList";
 import ItemEditScreen from "./ItemEdit";
+import SearchScreen from "./Search";
 
 //https://reactnavigation.org/docs/hello-react-navigation
 const ItemStack = createNativeStackNavigator();
@@ -14,6 +15,7 @@ const DrugRootScreen = () => {
         <ItemStack.Screen name="DrugDetail" component={DrugDetailScreen} options={{ headerShown: false }} />
         <ItemStack.Screen name="ItemList" component={ItemListScreen} options={{ headerShown: false }} />
         <ItemStack.Screen name="ItemEdit" component={ItemEditScreen} options={{ headerShown: false }} />
+        <ItemStack.Screen name="Search" component={SearchScreen} options={{ headerShown: false }} />
     </ItemStack.Navigator>
 }
 

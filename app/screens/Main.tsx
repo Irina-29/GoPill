@@ -7,6 +7,7 @@ import ScheduleScreen from "./Schedule";
 import HomeRootScreen from "./HomeRoot";
 import ItemListScreen from "./ItemList";
 import ScheduleListScreen from "./ScheduleList";
+import SearchScreen from "./Search";
 
 //https://reactnavigation.org/docs/tab-based-navigation
 const Tab = createBottomTabNavigator();
@@ -53,7 +54,7 @@ const MainNavigator = () => (
             //SEARCH!!!
             name="Search"
             //Search PAGE!!!
-            component={ItemScreen}
+            component={SearchScreen}
             options={{
                 headerShown: false,
                 tabBarLabel: 'Search',
