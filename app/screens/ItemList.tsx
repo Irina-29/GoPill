@@ -30,7 +30,7 @@ const ItemListScreen = ({ navigation, route }: any) => {
         AsyncStorage.setItem("@mydrugs", JSON.stringify(drugs.filter(d => d.id !== id))).then(refresh)
     }
 
-    useEffect(refresh, [])
+    useEffect(refresh, [drugs])
 
     return (
     <MainLayout>
