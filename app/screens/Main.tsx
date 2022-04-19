@@ -7,6 +7,7 @@ import ScheduleScreen from "./Schedule";
 import HomeRootScreen from "./HomeRoot";
 import ItemListScreen from "./ItemList";
 import ScheduleListScreen from "./ScheduleList";
+import SearchScreen from "./Search";
 
 //https://reactnavigation.org/docs/tab-based-navigation
 const Tab = createBottomTabNavigator();
@@ -48,19 +49,6 @@ const MainNavigator = () => (
                     <Icon name="calendar-month" color={color} size={26} />
                 ),
             }}
-        />  
-        <Tab.Screen
-            //SEARCH!!!
-            name="Search"
-            //Search PAGE!!!
-            component={ItemScreen}
-            options={{
-                headerShown: false,
-                tabBarLabel: 'Search',
-                tabBarIcon: ({ color }) => (
-                    <Icon name="magnify" color={color} size={26} />
-                ),
-            }}   
         />  
     </Tab.Navigator>
 );

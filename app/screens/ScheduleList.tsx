@@ -29,7 +29,7 @@ const ScheduleListScreen = ({ navigation }: any) => {
     }, []);
     return (
         <><Portal>
-            <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
+            <Modal visible={visible} contentContainerStyle={containerStyle}>
                 <Headline style={{ alignSelf: 'center', color: "#64b5f6" }}>Take Paracetamol</Headline>
                 <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', marginTop: '5%', marginBottom: '5%' }}>
                     <Button labelStyle={{ color: 'white', fontSize: 10}} style={{ alignSelf: 'flex-start', width: 50 }} mode="contained" color="#F95C6D"

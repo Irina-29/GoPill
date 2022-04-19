@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { StyleProp, ViewStyle, Text, StyleSheet, View, Image, ScrollView } from "react-native";
-import { Appbar, Headline, List, Divider, Button } from "react-native-paper";
+import { Appbar, Headline, List, Divider, Button, Snackbar } from "react-native-paper";
 import { Drug } from "./DrugCard";
 import MainLayout from "./Layout";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const inputStyle: StyleProp<ViewStyle> = {
         alignSelf: 'stretch',
@@ -10,7 +11,26 @@ const inputStyle: StyleProp<ViewStyle> = {
 };
 
 const DrugDetailScreen = ({ navigation, route }: any) => {
+
         const [drug, setDrug] = useState<Drug>(route.params?.drug || {})
+
+        const [visible, setVisible] = React.useState(false);
+        const onToggleSnackBar = () => setVisible(!visible);
+        const onDismissSnackBar = () => setVisible(false);
+
+        const addDrug = async() => {
+            const storedDrugs = await AsyncStorage.getItem("@mydrugs")
+            const drugs: Drug[] = storedDrugs?JSON.parse(storedDrugs): []
+
+            // const alarmDrug = drugs.find(d => d.name === "Paracetamol")
+            // if(alarmDrug) {
+            //     alarmDrug.remainingPills = alarmDrug?.remainingPills?alarmDrug.remainingPills-1: 0
+            // }
+            // await AsyncStorage.setItem("@mydrugs", JSON.stringify(drugs))
+
+            await AsyncStorage.setItem("@mydrugs", JSON.stringify([...drugs, drug]))
+            onToggleSnackBar()
+        }
 
         const styles = StyleSheet.create({
             container: {
@@ -67,13 +87,24 @@ const DrugDetailScreen = ({ navigation, route }: any) => {
                     </List.Accordion>
                 </List.Section>
                 <View style={[stylesItems.container, stylesItems.buttons]}>
-                    <Button labelStyle={{color:'white', lineHeight: 32}} style={{alignSelf: 'center', width: 150, height: 50}} mode="contained" color="#64b5f6"
-                    onPress={() => console.log('Pressed')}
+                    <Button labelStyle={{color:'white', lineHeight: 32}} style={{alignSelf: 'center', width: 150}} mode="contained" color="#64b5f6"
+                    onPress={() => addDrug()}
                     >Add to list</Button>
-                    <Button labelStyle={{color:'white', lineHeight: 32}} style={{alignSelf: 'center', width: 150, height: 50}} mode="contained" color="#64b5f6"
-                    onPress={() => console.log('Pressed')}
+                    <Button labelStyle={{color:'white', lineHeight: 32}} style={{alignSelf: 'center', width: 150}} mode="contained" color="#64b5f6"
+                    onPress={() => navigation.navigate("Search", {drug})}
                     >Find medicine</Button>
                 </View>
+                <Snackbar
+                    visible={visible}
+                    onDismiss={onDismissSnackBar}
+                    action={{
+                    label: 'Go to list',
+                    onPress: () => {
+                        navigation.navigate("ItemList")
+                    },
+                    }}>
+                    Hey there! I'm a Snackbar.
+                </Snackbar>
                 </ScrollView>
             </MainLayout>
         )

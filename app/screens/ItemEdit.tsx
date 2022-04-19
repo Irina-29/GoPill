@@ -1,37 +1,31 @@
 import React, { useState } from "react";
-import { StyleProp, ViewStyle } from "react-native";
-import { Button, Paragraph, TextInput } from "react-native-paper";
-import MainLayout from "./Layout";
+import { StyleProp, TouchableOpacity, ViewStyle } from "react-native";
+import { Button, List, Modal, Paragraph, Portal, TextInput } from "react-native-paper";
+import { Drug } from "./DrugCard";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const inputStyle: StyleProp<ViewStyle> = {
-        alignSelf: 'stretch',
-        margin: 20
-};
+const ListItem = ({ navigation, drug, onDelete}: any) => {
 
-const ItemEditScreen = ({ navigation, route }: any) => {
-        const [item, setItem] = useState<{ label: string, quantity: number, id?: string }>(route.params?.item || {})
+    const [visible, setVisible] = React.useState(false);
+    const showModal = () => setVisible(true);
+    const hideModal = () => setVisible(false);
+    
+    const containerStyle = {backgroundColor: 'white', padding: 20};
 
-        return <MainLayout>
-                <TextInput
-                        style={inputStyle}
-                        label="Label"
-                        value={item.label}
-                        autoComplete="off"
-                        onChangeText={(label: string) => setItem({ ...item, label })}
-                />
-                <TextInput
-                        style={inputStyle}
-                        label="Quantity"
-                        value={`${item.quantity || 0}`}
-                        keyboardType="numeric"
-                        autoComplete="off"
-                        onChangeText={(quantity: string) => setItem({ ...item, quantity: Number(quantity) })}
-                />
-
-                <Button mode="outlined" style={{ alignSelf: 'center' }}
-                        
-                >Save</Button>
-        </MainLayout>
+        return (
+        <TouchableOpacity onPress={() => onDelete(drug.id)} key={drug.id}>
+            <Portal>
+                <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
+                    <Paragraph>Example Modal.  Click outside this area to dismiss.</Paragraph>
+                </Modal>
+            </Portal>
+            <List.Item
+                style={{marginLeft:"2%"}}
+                title={drug.name}
+                description={`${drug.quantity}x pills`}
+                left={props => <List.Icon {...props} icon="pill" />} />
+        </TouchableOpacity>
+        )
 }
 
-export default ItemEditScreen;
+export default ListItem;
