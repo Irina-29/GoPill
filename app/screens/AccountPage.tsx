@@ -41,45 +41,50 @@ const AccountProfile = ({ navigation }: any) => {
                 <Appbar.Content color={'white'} title={`Account`} />
             </Appbar.Header>
             <ScrollView>
+            <Text style={{ marginLeft: 15, marginTop: 12, color: "black" }}>Name</Text>
                 <TextInput
                     style={styles.input}
-                    label="Name"
                     mode="outlined"
                     onChangeText={newName => setNewName(newName)}
-                    value={user?.name}
+                    defaultValue={user?.name}
+                    placeholder="Enter Name here"
                 />
+                <Text style={{ marginLeft: 15, color: "black" }}>Email</Text>
                 <TextInput
                     style={styles.input}
-                    label="Email"
                     mode="outlined"
                     onChangeText={newEmail => setNewName(newEmail)}
-                    value={user?.email}
+                    defaultValue={user?.email}
+                    placeholder="Enter Email here"
                 />
+                <Text style={{ marginLeft: 15, color: "black" }}>Password</Text>
                 <TextInput
                     style={styles.input}
                     mode="outlined"
-                    label="Enter password"
+                    placeholder="Enter Password here"
                     autoCapitalize="none"
                     autoCorrect={false}
                     textContentType="newPassword"
                     secureTextEntry={passwordVisibility}
                     right={<TextInput.Icon name="eye" onPress={() => setPasswordVisibility(!passwordVisibility)} />}
-                    value={user?.password}
+                    defaultValue={user?.password}
                     onChangeText={newPassword => setNewPassword(newPassword)}
                 />
+                <Text style={{ marginLeft: 15, color: "black" }}>Address</Text>
                 <TextInput
                     style={styles.input}
-                    label="Address"
+                    placeholder="Enter Address here"
                     mode="outlined"
                     onChangeText={newAddress => setNewAddress(newAddress)}
-                    value={user?.address}
+                    defaultValue={user?.address}
                 />
+                <Text style={{ marginLeft: 15, color: "black" }}>Phone Number</Text>
                 <TextInput
                     style={styles.input}
-                    label="Phone Number"
+                    placeholder="Enter Phone Number here"
                     mode="outlined"
                     onChangeText={newPhoneNumber => setNewPhoneNumber(newPhoneNumber)}
-                    value={user?.phoneNumber}
+                    defaultValue={user?.phoneNumber}
                     mode="outlined"
                 />
                 <Text style={{ marginLeft: 15, color: "black" }}>Payment method</Text>
@@ -88,7 +93,7 @@ const AccountProfile = ({ navigation }: any) => {
                     mode="contained" color="#81FDA7"
                     onPress={() => AsyncStorage.setItem("@user", JSON.stringify({
                         name: newName, email: newEmail, password: newPassword, address: newAddress, phoneNumber: newPhoneNumber
-                    }))}> Save </Button>
+                    })).then(() => navigation.navigate("Profile"))}> Save </Button>
             </ScrollView>
         </MainLayout>
     );
