@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
 });
 const AccountProfile = ({ navigation }: any) => {
     const [user, setUser] = useState<{ name: string, email: string, password: string }>();
-
     useEffect(() => {
         const fetchUser = async () => {
             const storedUser = await AsyncStorage.getItem('@user');
@@ -29,51 +28,58 @@ const AccountProfile = ({ navigation }: any) => {
         }
         fetchUser();
     }, [])
+    // const [newName, setNewName] =useState('{user?.name}');
+    const [newName, setNewName] =useState('');
+    const [newEmail, setNewEmail] =useState('');
+    const [newAddress, setNewAddress] =useState('');
+    const [newPhoneNumber, setNewPhoneNumber] =useState('');
     const inputStyle: StyleProp<ViewStyle> = {
         alignSelf: 'stretch',
         margin: 20
     };
     const [text, onChangeText] = React.useState("Ana");
-    const [number, onChangeNumber] = React.useState(null);
     return (
         <MainLayout>
             <Appbar.Header style={{ backgroundColor: '#64b5f6', bottom: 10 }}>
                 <Appbar.BackAction color="white" onPress={() => navigation.navigate("Profile")} />
                 <Appbar.Content color={'white'} title={`Account`} />
             </Appbar.Header>
-            <Text style={{ marginLeft: 15, marginTop: 12, color: "grey" }}>Name</Text>
+            <Text style={{ marginLeft: 15, marginTop: 12, color: "black" }}>Name</Text>
             <TextInput
                 style={styles.input}
-                onChangeText={onChangeText}
+                onChangeText={newName => setNewName('{user?.name}')}
                 defaultValue={user?.name}
             />
-            <Text style={{ marginLeft: 15, color: "grey" }}>Email</Text>
+            <Text style={{ marginLeft: 15, color: "black" }}>Email</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={onChangeText}
-
                 defaultValue={user?.email}
             />
-            <Text style={{ marginLeft: 15, color: "grey" }}>Password</Text>
+            <Text style={{ marginLeft: 15, color: "black" }}>Password</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={onChangeText}
-
                 defaultValue={user?.password}
             />
-            <Text style={{ marginLeft: 15, color: "grey" }}>Payment</Text>
+            <Text style={{ marginLeft: 15, color: "black" }}>Address</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={onChangeText}
-
-                defaultValue="ANa"
+                placeholder="Type here "
             />
-            {/* <TextInput
-                mode="outlined"
-                label="Outlined input"
-                placeholder="Type something"
-                right={<TextInput.Affix text="/100" />}
-            > */}
+            <Text style={{ marginLeft: 15, color: "black" }}>Phone Number</Text>
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangeText}
+                placeholder="Type here "
+            />
+            <Text style={{ marginLeft: 15, color: "black" }}>Payment</Text>
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangeText}
+                placeholder="Type here "
+            />
         </MainLayout>
     );
 }
