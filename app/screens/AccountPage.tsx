@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "./Layout";
-import { Appbar, Avatar, Button, Divider, TextInput, Paragraph } from "react-native-paper";
-import { StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle, Text, Pressable, ScrollView } from "react-native";
+import { Appbar, Avatar, Button, Divider, TextInput, Paragraph, Card } from "react-native-paper";
+import { StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle, Text, Pressable, ScrollView, Image } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SafeAreaView } from "react-native-safe-area-context";
+
 const styles = StyleSheet.create({
     input: {
         margin: 12,
+        marginTop: 5
     },
 
 });
+const LeftContent = () => <Image style={{width: 80, height: 45}} source={require('./assets/Mastercard-Logo.png')} />
+
 const AccountProfile = ({ navigation }: any) => {
     const [user, setUser] = useState<{ name: string, email: string, password: string, address: string, phoneNumber: string }>();
     useEffect(() => {
@@ -28,7 +32,7 @@ const AccountProfile = ({ navigation }: any) => {
     const [newAddress, setNewAddress] = useState('');
     const [newPhoneNumber, setNewPhoneNumber] = useState('');
     const [hidePassword, setHidePassword] = useState(true);
-    const [passwordVisibility, setPasswordVisibility] = useState(false);
+    const [passwordVisibility, setPasswordVisibility] = useState(true);
     const inputStyle: StyleProp<ViewStyle> = {
         alignSelf: 'stretch',
         margin: 10
@@ -41,7 +45,7 @@ const AccountProfile = ({ navigation }: any) => {
                 <Appbar.Content color={'white'} title={`Account`} />
             </Appbar.Header>
             <ScrollView>
-            <Text style={{ marginLeft: 15, marginTop: 12, color: "black" }}>Name</Text>
+            <Text style={{ marginLeft: 15, marginTop: 10, color: "black"}}>Name</Text>
                 <TextInput
                     style={styles.input}
                     mode="outlined"
@@ -88,8 +92,11 @@ const AccountProfile = ({ navigation }: any) => {
                     mode="outlined"
                 />
                 <Text style={{ marginLeft: 15, color: "black" }}>Payment method</Text>
+                <Card style={{marginTop: "3%", marginBottom: "2%", marginLeft: "3%", marginRight: "3%"}}>
+                    <Card.Title subtitleStyle={{marginLeft: '15%'}} titleStyle={{marginLeft: '15%'}} title={"**** **** **** 4987"} subtitle={"Expires 09/26"} left={LeftContent}/>
+                </Card>
                 <Button labelStyle={{ color: 'white', fontSize: 20, alignContent: 'center' }}
-                    style={{ alignSelf: 'center', height: 50, width: 130 }}
+                    style={{ alignSelf: 'center', width: 130, margin: 15 }}
                     mode="contained" color="#81FDA7"
                     onPress={() => AsyncStorage.setItem("@user", JSON.stringify({
                         name: newName, email: newEmail, password: newPassword, address: newAddress, phoneNumber: newPhoneNumber

@@ -50,13 +50,13 @@ const SettingsForApp = ({ navigation }: any) => {
                 <Appbar.Content color={'white'} title={`Settings`} />
             </Appbar.Header>
             <Drawer.Item
-                style={{ backgroundColor: 'white' }}
+                style={{ backgroundColor: 'white', marginTop: 20 }}
                 icon="bell"
                 label="Notifications"
                 onPress={showModal}
             />
             <Drawer.Item
-                style={{ backgroundColor: 'white' }}
+                style={{ backgroundColor: 'white', marginTop: 10 }}
                 icon="brightness-4"
                 label="Theme"
                 onPress={() => navigation.navigate('Login')}
