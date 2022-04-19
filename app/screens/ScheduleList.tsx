@@ -14,7 +14,7 @@ const ScheduleListScreen = ({ navigation }: any) => {
 
     const showModal = () => setVisible(true);
     const hideModal = () => setVisible(false);
-    const containerStyle = { backgroundColor: 'white', padding: 20, marginRight: 15, marginLeft: 15, borderRadius: 5 };
+    const containerStyle = { backgroundColor: 'white', paddingTop: 20, paddingBottom: 20, marginRight: 25, marginLeft: 25, borderRadius: 5 };
     const styles = StyleSheet.create({
         container: {
             backgroundColor: '#64b5f6',
@@ -24,7 +24,7 @@ const ScheduleListScreen = ({ navigation }: any) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             showModal()
-        }, 1000);
+        }, 5000);
         return () => clearTimeout(timer);
     }, []);
     return (
@@ -32,15 +32,15 @@ const ScheduleListScreen = ({ navigation }: any) => {
             <Modal visible={visible} contentContainerStyle={containerStyle}>
                 <Headline style={{ alignSelf: 'center', color: "#64b5f6" }}>Take Paracetamol</Headline>
                 <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', marginTop: '5%', marginBottom: '5%' }}>
-                    <Button labelStyle={{ color: 'white', fontSize: 10}} style={{ alignSelf: 'flex-start', width: 50 }} mode="contained" color="#F95C6D"
+                    <Button labelStyle={{ color: 'white', fontSize: 13}} style={{ alignSelf: 'flex-start', width: 80 }} mode="contained" color="#F95C6D"
                         // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
                         onPress={() => hideModal()}
                     >Skip</Button>
-                    <Button labelStyle={{ color: 'white', fontSize: 10 }} style={{ alignSelf: 'center', width: 120 }} mode="contained" color="#EBEF00"
+                    <Button labelStyle={{ color: 'white', fontSize: 13 }} style={{ alignSelf: 'center', width: 90 }} mode="contained" color="#64b5f6"
                         // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
                         onPress={() => hideModal()}
-                    >Snooze 5 min</Button>
-                    <Button labelStyle={{ color: 'white', fontSize: 10 }} style={{ alignSelf: 'center', width: 50 }} mode="contained" color="#81FDA7"
+                    >Snooze</Button>
+                    <Button labelStyle={{ color: 'white', fontSize: 13 }} style={{ alignSelf: 'center', width: 80 }} mode="contained" color="#81FDA7"
                         // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
                         onPress={() => hideModal()}
                     >Ok</Button>
@@ -56,7 +56,6 @@ const ScheduleListScreen = ({ navigation }: any) => {
                     <Appbar.Content color="white" title="My Schedule" />
                 </Appbar.Header>
                 <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column' }}>
-                    {/* <Headline style={{ textAlign: "center", lineHeight: 80, color: 'white', backgroundColor: '#64b5f6' }}>My Schedule</Headline> */}
                     <ScrollView stickyHeaderIndices={[0]}>
                         <View style={{ backgroundColor: "white" }}>
                             <Subheading style={{ marginLeft: "4%", marginBottom: "4%", marginTop: "4%" }}>Upcoming alarms</Subheading>
