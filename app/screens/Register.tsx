@@ -8,6 +8,8 @@ const RegisterScreen = ({ navigation }: any) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [address, setAddress] = useState('');
+    const [phoneNumber, setphoneNumber] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
     const [hidePassword, setHidePassword] = useState(true);
     const [error, setError] = useState('');
@@ -23,7 +25,7 @@ const RegisterScreen = ({ navigation }: any) => {
         }
         else {
             AsyncStorage.setItem("@user", JSON.stringify({
-                name, email, password
+                name, email, password, address,phoneNumber 
             })).then(() => navigation.navigate("Login"))
         }
     };

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "./Layout";
-import { Appbar, Avatar, Button, Divider, Paragraph } from "react-native-paper";
-import { AsyncStorage, StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle, TextInput, Text } from "react-native";
+import { Appbar, Avatar, Button, Divider, TextInput, Paragraph } from "react-native-paper";
+import { StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle, Text, Pressable, ScrollView } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SafeAreaView } from "react-native-safe-area-context";
 const styles = StyleSheet.create({
     input: {
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
 
 });
 const AccountProfile = ({ navigation }: any) => {
-    const [user, setUser] = useState<{ name: string, email: string, password: string }>();
+    const [user, setUser] = useState<{ name: string, email: string, password: string, address: string, phoneNumber: string }>();
     useEffect(() => {
         const fetchUser = async () => {
             const storedUser = await AsyncStorage.getItem('@user');
@@ -29,10 +30,13 @@ const AccountProfile = ({ navigation }: any) => {
         fetchUser();
     }, [])
     // const [newName, setNewName] =useState('{user?.name}');
-    const [newName, setNewName] =useState('');
-    const [newEmail, setNewEmail] =useState('');
-    const [newAddress, setNewAddress] =useState('');
-    const [newPhoneNumber, setNewPhoneNumber] =useState('');
+    const [newName, setNewName] = useState('');
+    const [newEmail, setNewEmail] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [newAddress, setNewAddress] = useState('');
+    const [newPhoneNumber, setNewPhoneNumber] = useState('');
+    const [hidePassword, setHidePassword] = useState(true);
+    const [passwordVisibility, setPasswordVisibility] = useState(false);
     const inputStyle: StyleProp<ViewStyle> = {
         alignSelf: 'stretch',
         margin: 20
@@ -44,58 +48,67 @@ const AccountProfile = ({ navigation }: any) => {
                 <Appbar.BackAction color="white" onPress={() => navigation.navigate("Profile")} />
                 <Appbar.Content color={'white'} title={`Account`} />
             </Appbar.Header>
-            <Text style={{ marginLeft: 15, marginTop: 12, color: "black" }}>Name</Text>
-            <TextInput
+            <ScrollView>
+                <Text style={{ marginLeft: 15, marginTop: 12, color: "black" }}>Name</Text>
+                <TextInput
+                    style={styles.input}
+                    onChangeText={newName => setNewName(newName)}
+                    placeholder="Type here "
+                    defaultValue={user?.name}
+                />
+                <Text style={{ marginLeft: 15, color: "black" }}>Email</Text>
+                <TextInput
+                    style={styles.input}
+                    onChangeText={newEmail => setNewName(newEmail)}
+                    placeholder="Type here "
+                    defaultValue={user?.email}
+                />
+                <Text style={{ marginLeft: 15, color: "black" }}>Password</Text>
+                {/* <TextInput
                 style={styles.input}
-                onChangeText={newName => setNewName('{user?.name}')}
-                defaultValue={user?.name}
-            />
-            <Text style={{ marginLeft: 15, color: "black" }}>Email</Text>
-            <TextInput
-                style={styles.input}
-                onChangeText={onChangeText}
-                defaultValue={user?.email}
-            />
-            <Text style={{ marginLeft: 15, color: "black" }}>Password</Text>
-            <TextInput
-                style={styles.input}
-                onChangeText={onChangeText}
+                onChangeText={newEmail => setNewName(newEmail)}
+                placeholder="Type here "
                 defaultValue={user?.password}
-            />
-            <Text style={{ marginLeft: 15, color: "black" }}>Address</Text>
-            <TextInput
-                style={styles.input}
-                onChangeText={onChangeText}
-                placeholder="Type here "
-            />
-            <Text style={{ marginLeft: 15, color: "black" }}>Phone Number</Text>
-            <TextInput
-                style={styles.input}
-                onChangeText={onChangeText}
-                placeholder="Type here "
-            />
-            <Text style={{ marginLeft: 15, color: "black" }}>Payment</Text>
-            <TextInput
-                style={styles.input}
-                onChangeText={onChangeText}
-                placeholder="Type here "
-            />
+                secureTextEntry={hidePassword}
+            >
+                <TextInput name="eye" onPress={() => setHidePassword(!hidePassword)} />
+            </TextInput> */}
+                <TextInput
+                    style={styles.input}
+                    placeholder="Enter password"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    textContentType="newPassword"
+                    secureTextEntry={passwordVisibility}
+                    right={<TextInput.Icon name="eye" onPress={() => setPasswordVisibility(!passwordVisibility)} />}
+                    value={user?.password}
+                    enablesReturnKeyAutomatically
+                    onChangeText={newPassword => setNewPassword(newPassword)}
+                />
+                <Text style={{ marginLeft: 15, color: "black" }}>Address</Text>
+                <TextInput
+                    onChangeText={newAddress => setNewAddress(newAddress)}
+                    placeholder="Type here "
+                    defaultValue={user?.address}
+                />
+                <Text style={{ marginLeft: 15, color: "black" }}>Phone Number</Text>
+                <TextInput
+                    label="Phone Number"
+                    onChangeText={newPhoneNumber => setNewPhoneNumber(newPhoneNumber)}
+                    placeholder="Type here "
+                    defaultValue={user?.phoneNumber}
+                    mode="outlined"
+                />
+                <Text style={{ marginLeft: 15, color: "black" }}>Payment method</Text>
+                <Button labelStyle={{ color: 'white', fontSize: 20, alignContent: 'center' }}
+                    style={{ alignSelf: 'center', height: 50, width: 130 }}
+                    mode="contained" color="#81FDA7"
+                    onPress={() => AsyncStorage.setItem("@user", JSON.stringify({
+                        name: newName, email: newEmail, password: newPassword, address: newAddress, phoneNumber: newPhoneNumber
+                    }))}> Save </Button>
+            </ScrollView>
         </MainLayout>
     );
 }
 
 export default AccountProfile;
-
-function setEmail(email: string) {
-    throw new Error("Function not implemented.");
-}
-
-
-function setPassword(password: string): void {
-    throw new Error("Function not implemented.");
-}
-
-
-function setHidePassword(arg0: boolean): void {
-    throw new Error("Function not implemented.");
-}

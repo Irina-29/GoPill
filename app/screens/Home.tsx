@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 const HomeScreen = ({ navigation }: any) => {
 
     const [data, setData] = useState<{ label: string, quantity: number }[]>();
-    const [user, setUser] = useState<{ name: string, email: string, password: string}>();
+    const [user, setUser] = useState<{ name: string, email: string, password: string,address: string, phoneNumber: string}>();
 
     useEffect(() => {
         const fetchUser = async () => {

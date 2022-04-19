@@ -13,7 +13,7 @@ import MapView from "react-native-maps";
 import OrderCard, { Order } from "./OrderCard";
 
 const renderOrders = (Orders: Order[]) => {
-    return (Orders.map(order => <OrderCard order={order}></OrderCard>
+    return (Orders.map(order => <OrderCard order={order} key={order.id}></OrderCard>
         )
     )
 }
@@ -63,7 +63,7 @@ const MyOrdersScreen = ({ navigation }: any) => {
         {
             amount: 15,
             date: "13-01-2022",
-            id: 12483,
+            id: 12495,
             quantity: 5,
             status: "Delivered",
             bottle: "3",
@@ -73,7 +73,7 @@ const MyOrdersScreen = ({ navigation }: any) => {
         {
             amount: 18,
             date: "26-12-2021",
-            id: 12483,
+            id: 12498,
             quantity: 3,
             status: "Delivered",
             bottle: "6",

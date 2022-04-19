@@ -23,7 +23,7 @@ const SettingsForApp = ({ navigation }: any) => {
             <Drawer.Item
                 style={{ backgroundColor: 'white' }}
                 icon="bell"
-                label="Allow notifications"
+                label="Notifications"
                 onPress={() => navigation.navigate('Login')}
             />
             <Drawer.Item
