@@ -11,6 +11,8 @@ export interface Drug {
     quantity: number
     price: number
     image: any
+    dose: number
+    description: string
 }
 
 const styles = StyleSheet.create({

@@ -33,7 +33,7 @@ const HomeScreen = ({ navigation }: any) => {
             <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column', marginTop: '5%', marginLeft: '5%', marginRight: '5%'}}>
                     <Subheading>Quick Action</Subheading>
                         <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center',  marginTop: '10%', marginBottom: '10%'}}>
-                            <Button labelStyle={{color:'white'}} style={{alignSelf: 'center', width: 200}} mode="contained" color="#64b5f6" 
+                            <Button labelStyle={{color:'white', lineHeight: 32}} style={{alignSelf: 'center', width: 200}} mode="contained" color="#64b5f6" 
                             // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
                             onPress={() => navigation.navigate("DrugsList")}
                             >Add new medicine</Button>
