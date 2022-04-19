@@ -50,19 +50,6 @@ const MainNavigator = () => (
                 ),
             }}
         />  
-        <Tab.Screen
-            //SEARCH!!!
-            name="Search"
-            //Search PAGE!!!
-            component={SearchScreen}
-            options={{
-                headerShown: false,
-                tabBarLabel: 'Search',
-                tabBarIcon: ({ color }) => (
-                    <Icon name="magnify" color={color} size={26} />
-                ),
-            }}   
-        />  
     </Tab.Navigator>
 );
 

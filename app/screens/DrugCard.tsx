@@ -13,6 +13,8 @@ export interface Drug {
     image: any
     dose: number
     description: string
+    remainingPills?: number
+    prescription?: boolean
 }
 
 const styles = StyleSheet.create({
