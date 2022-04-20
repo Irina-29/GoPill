@@ -3,8 +3,9 @@ import { StyleProp, TouchableOpacity, View, ViewStyle } from "react-native";
 import { Button, Headline, List, Modal, Paragraph, Portal, Subheading } from "react-native-paper";
 import { Drug } from "./DrugCard";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from "@react-navigation/native";
 
-const ListItem = ({ navigation, drug, onDelete}: any) => {
+const ListItem = ({ drug, onDelete}: any) => {
 
     const [visible, setVisible] = React.useState(false);
     const showModal = () => setVisible(true);
@@ -19,6 +20,8 @@ const ListItem = ({ navigation, drug, onDelete}: any) => {
         borderRadius: 20
     };
 
+    const navigation = useNavigation();
+
         return (
         <TouchableOpacity 
         key={drug.id}
@@ -26,11 +29,11 @@ const ListItem = ({ navigation, drug, onDelete}: any) => {
             <Portal>
                 <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
                     <Headline style={{ alignSelf: 'center' }}>{drug.name}</Headline>
-                    <Subheading>{`${drug.quantity}x pills left`}</Subheading>
+                    <Subheading>{`${drug.remainingPills}x pills left`}</Subheading>
                     <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', marginTop: '5%', marginBottom: '5%' }}>
                         <Button labelStyle={{ color: 'white', fontSize: 15, lineHeight: 25 }} style={{ alignSelf: 'center', width: 200, marginBottom: 20, marginTop: 10}} mode="contained" color="#64b5f6"
                             // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
-                            onPress={() => hideModal()}
+                        onPress={() => navigation.navigate("ScheduleList")}
                         >Add to schedule</Button>
                         <Button labelStyle={{ color: 'white', fontSize: 15, lineHeight: 25 }} style={{ alignSelf: 'center', width: 200}} mode="contained" color="#F95C6D"
                             // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
@@ -45,7 +48,7 @@ const ListItem = ({ navigation, drug, onDelete}: any) => {
             <List.Item
                 style={{marginLeft:"2%"}}
                 title={drug.name}
-                description={`${drug.quantity}x pills`}
+                description={`${drug.remainingPills}x pills`}
                 left={props => <List.Icon {...props} icon="pill" />} />
         </TouchableOpacity>
         )

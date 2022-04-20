@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import MainLayout from "./Layout";
 import { Button, Card, DataTable, Divider, Modal, List, Paragraph, Subheading, Title, Headline, Appbar, Portal } from "react-native-paper";
 import { ScrollView, View, StyleSheet } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Drug } from "./DrugCard";
 
 const ScheduleListScreen = ({ navigation }: any) => {
 
@@ -21,6 +23,22 @@ const ScheduleListScreen = ({ navigation }: any) => {
             bottom: 10,
         },
     });
+
+
+    const decreasePill = async() =>
+    {   
+        const storedDrugs = await AsyncStorage.getItem("@mydrugs")
+        if(!storedDrugs)
+            return
+        const allDrugs: Drug[] = JSON.parse(storedDrugs)
+        const alarmDrug = allDrugs.find(d => d.name === "Paracetamol") 
+        if(alarmDrug) {
+            alarmDrug.remainingPills = alarmDrug?.remainingPills?alarmDrug.remainingPills-1: 0
+        }
+        await AsyncStorage.setItem("@mydrugs", JSON.stringify(allDrugs))
+        hideModal()
+    }
+
     useEffect(() => {
         const timer = setTimeout(() => {
             showModal()
@@ -42,7 +60,7 @@ const ScheduleListScreen = ({ navigation }: any) => {
                     >Snooze</Button>
                     <Button labelStyle={{ color: 'white', fontSize: 13 }} style={{ alignSelf: 'center', width: 80 }} mode="contained" color="#81FDA7"
                         // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
-                        onPress={() => hideModal()}
+                        onPress={decreasePill}
                     >Ok</Button>
                     {/* <Button labelStyle={{color:'white'}} style={{alignSelf: 'center', width: 200}} mode="contained" color="#64b5f6"
                             onPress={() => navigation.navigate("Search")}

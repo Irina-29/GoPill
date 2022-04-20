@@ -67,7 +67,7 @@ const HomeScreen = ({ navigation }: any) => {
                                 <Divider />
                                 <List.Item
                                     title="SALE 60% OFF on Nurofen"
-                                    description="CVS Pharmacy"
+                                    description="Catena pharmacy"
                                     left={props => <List.Icon {...props} icon="sale" />}
                                 />
                                 <Divider />
