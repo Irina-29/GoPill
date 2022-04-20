@@ -12,7 +12,7 @@ const renderPharmacy = (Pharmacy: Pharmacy[]) => {
     return (Pharmacy.map(pharmacy => <PharmacyCard pharmacy={pharmacy} key={pharmacy.id}></PharmacyCard>))
 }
 
-const SearchScreen = ({ navigation, route }: any) => {
+const SearchScreen = ({ navigation }: any) => {
 
     const pharmacyList: Pharmacy[] = [
          {

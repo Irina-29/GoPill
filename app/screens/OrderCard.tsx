@@ -79,9 +79,12 @@ const OrderCard = ({ order }: { order: Order }) => {
                     </View>
                 </View>
                 <View style={mapStyles.container}>
-                    <MapView style={mapStyles.map} initialRegion={{ latitude: 45, longitude: 26, latitudeDelta: 0.05, longitudeDelta: 0.05 }}>
-                        <Marker coordinate={{ latitude: 45, longitude: 26 }}>
+                    <MapView style={mapStyles.map} initialRegion={{ latitude: 44.4268, longitude: 26.1025, latitudeDelta: 0.05, longitudeDelta: 0.05 }}>
+                        <Marker coordinate={{ latitude: 44.410, longitude: 26.1012 }}>
                             <Avatar.Icon icon="car-side" size={30} />
+                        </Marker>
+                        <Marker coordinate={{ latitude: 44.432, longitude: 26.08 }}>
+                            <Avatar.Icon style={{backgroundColor: '#F95C6D'}} icon="map-marker" size={30} />
                         </Marker>
                     </MapView>
                 </View>

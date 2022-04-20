@@ -26,7 +26,7 @@ const PharmacyCard = ({ pharmacy }: {pharmacy: Pharmacy}) => {
     
     return (
         <Card key={pharmacy.id} style={styles.container} 
-        // onPress={() => navigation.navigate("PharmacyDetail", {pharmacy})}
+        onPress={() => navigation.navigate("PharmacyDetail", {pharmacy})}
         >
             <Card.Content>
                 <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
