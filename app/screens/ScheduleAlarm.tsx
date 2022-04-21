@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "./Layout";
-import { Appbar, Button, Divider, TextInput } from "react-native-paper";
+import { Appbar, Button, Divider, IconButton, TextInput } from "react-native-paper";
 import { ScrollView, View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { Drug } from "./DrugCard";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -35,7 +35,7 @@ const ScheduleAlarmScreen = ({ navigation, route }: any) => {
         }
     });
 
-    const number = drug.remainingPills
+    const number: any = drug.remainingPills
     const numberUses = JSON.stringify(number);
 
     const [selectedValue, setSelectedValue] = useState("java");
@@ -63,18 +63,18 @@ const ScheduleAlarmScreen = ({ navigation, route }: any) => {
         showMode('time');
     };
 
-    const [counter, setCounter] = useState(1);
+    const [counter, setCounter] = useState(number);
 
-    // const increment =()=>{
-    //     if(counter+1 <= 12){
-    //         setCounter(counter+1);
-    //         }
-    //     }
-    // const decrement =()=>{
-    //         if(counter-1 > 1){
-    //             setCounter(counter-1);
-    //          }
-    //      }
+    const increment =()=>{
+        if(counter+1 <= number){
+            setCounter(counter+1);
+            }
+        }
+    const decrement =()=>{
+            if(counter-1 > 0){
+                setCounter(counter-1);
+             }
+         }
 
     return (
         <MainLayout>
@@ -84,7 +84,26 @@ const ScheduleAlarmScreen = ({ navigation, route }: any) => {
             </Appbar.Header>
             <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column' }}>
                 <Text style={{ fontSize: 18, marginLeft: 20, marginTop: 30, color: "black" }}>Name: <Text style={{color: "#64b5f6"}}>{drug.name}</Text></Text>
-                <Text style={{ fontSize: 18, marginLeft: 20, marginTop: 30, color: "black" }}>Number of uses: <Text style={{color: "#64b5f6"}}>{numberUses}</Text></Text>
+                <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center',  marginTop: 30}}>
+                    <Text style={{ fontSize: 18, marginLeft: 20, color: "black" }}>
+                        Number of uses: 
+                    </Text>
+                    <View style={{display: "flex", flexDirection: 'row', alignItems: 'center', marginLeft: 4}}>
+                            <IconButton
+                            color="#64b5f6"
+                            icon="minus-circle"
+                            size={18}
+                            onPress={() => decrement()}
+                            />
+                            <Text style={{ fontSize: 18, color: "black" }}>{counter <= 1 ? 1 : counter}</Text>
+                            <IconButton
+                                color="#64b5f6"
+                                icon="plus-circle"
+                                size={18}
+                                onPress={() => increment()}
+                            />
+                        </View>
+                </View>
                 <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                     <Text style={{ fontSize: 18, marginLeft: 20, marginTop: 25, color: "black" }}>First administration:</Text>
                     <Button style={{marginTop: 25}} onPress={showDatepicker}>Select date</Button>
@@ -113,17 +132,8 @@ const ScheduleAlarmScreen = ({ navigation, route }: any) => {
                         <Picker.Item style={{fontSize: 18}} label="monthly" value="monthly" />
                     </Picker>
                 </View>
-                {/* <View style={{display: 'flex', flexDirection: 'row', marginLeft: "4%"}}>
-                    <TouchableOpacity onPress={() => decrement()}>
-                        <Text>-</Text>
-                    </TouchableOpacity>
-                    <Text>{counter <= 1 ? 1 : counter}</Text>
-                    <TouchableOpacity onPress={() => increment()}>
-                        <Text>+</Text>
-                    </TouchableOpacity>
-                </View> */}
                 <Button labelStyle={{ color: 'white', fontSize: 20, alignContent: 'center' }}
-                    style={{ alignSelf: 'center', width: 130, margin: 150 }}
+                    style={{ alignSelf: 'center', width: 130, margin: 135 }}
                     mode="contained" color="#81FDA7" onPress={() => navigation.navigate("ScheduleList")}
                     > Save </Button>
             </View>
