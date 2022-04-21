@@ -42,53 +42,6 @@ const ItemListScreen = ({ navigation, route }: any) => {
             <ScrollView>
                 <List.Section>
                     {drugs.map(d => <ListItem drug = {d} key={d.id} onDelete={deleteDrug}></ListItem>)}
-                    {/* <TouchableOpacity onPress={showModal}>
-                    <List.Item
-                        style={{marginLeft:"2%"}}
-                        title="Paracetamol"
-                        description="3x pills"
-                        left={props => <List.Icon {...props} icon="pill" />} />
-                    </TouchableOpacity>
-                    <Divider />
-                    <TouchableOpacity onPress={showModal}>
-                    <List.Item
-                        style={{marginLeft:"2%"}}
-                        title="Vitamin C"
-                        description="27x pills"
-                        left={props => <List.Icon {...props} icon="pill" />} />
-                    </TouchableOpacity>
-                    <Divider />
-                    <TouchableOpacity onPress={showModal}>
-                    <List.Item
-                        style={{marginLeft:"2%"}}
-                        title="Vitamin D3"
-                        description="28x pills"
-                        left={props => <List.Icon {...props} icon="pill" />} />
-                    </TouchableOpacity>
-                    <Divider />
-                    <TouchableOpacity onPress={showModal}>
-                    <List.Item
-                        style={{marginLeft:"2%"}}
-                        title="Nurofen"
-                        description="39x pills"
-                        left={props => <List.Icon {...props} icon="pill" />} />
-                    </TouchableOpacity>
-                    <Divider />
-                    <TouchableOpacity onPress={showModal}>
-                    <List.Item
-                        style={{marginLeft:"2%"}}
-                        title="Aspirin"
-                        description="50x pills"
-                        left={props => <List.Icon {...props} icon="pill" />} />
-                    </TouchableOpacity>
-                    <Divider />
-                    <TouchableOpacity onPress={showModal}>
-                    <List.Item
-                        style={{marginLeft:"2%"}}
-                        title="Calcivid"
-                        description="100x pills"
-                        left={props => <List.Icon {...props} icon="pill" />} />
-                    </TouchableOpacity> */}
                 </List.Section>
             </ScrollView>
             <FAB

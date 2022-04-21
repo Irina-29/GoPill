@@ -11,6 +11,8 @@ import AccountProfile from "./AccountPage";
 import SupportPage from "./Support";
 import DrugRootScreen from "./DrugRoot";
 import NotificationsForApp from "./Notifications";
+import ScheduleRootScreen from "./ScheduleRoot";
+import ItemListScreen from "./ItemList";
 
 //https://reactnavigation.org/docs/hello-react-navigation
 const ItemStack = createNativeStackNavigator();
@@ -26,6 +28,8 @@ const HomeRootScreen = () => {
         <ItemStack.Screen name="Support" component={SupportPage} options={{ headerShown: false }} />
         <ItemStack.Screen name="DrugsList" component={DrugRootScreen} options={{ headerShown: false }} />
         <ItemStack.Screen name="Notifications" component={NotificationsForApp} options={{ headerShown: false }} />
+        <ItemStack.Screen name="ScheduleRootScreen" component={ScheduleRootScreen} options={{ headerShown: false }} />
+        <ItemStack.Screen name="ItemList" component={ItemListScreen} options={{ headerShown: false }} />
     </ItemStack.Navigator>
 }
 

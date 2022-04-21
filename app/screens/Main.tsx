@@ -8,6 +8,7 @@ import HomeRootScreen from "./HomeRoot";
 import ItemListScreen from "./ItemList";
 import ScheduleListScreen from "./ScheduleList";
 import SearchScreen from "./Search";
+import ScreenRootScreen from "./ScheduleRoot";
 
 //https://reactnavigation.org/docs/tab-based-navigation
 const Tab = createBottomTabNavigator();
@@ -41,7 +42,7 @@ const MainNavigator = () => (
         <Tab.Screen
             //SCHEDULE!!!
             name="Schedule"
-            component={ScheduleListScreen}
+            component={ScreenRootScreen}
             options={{
                 headerShown: false,
                 tabBarLabel: 'Schedule',

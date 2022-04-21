@@ -4,6 +4,9 @@ import { Button, Card, DataTable, Divider, Modal, List, Paragraph, Subheading, T
 import { ScrollView, View, StyleSheet } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Drug } from "./DrugCard";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const ScheduleStack = createNativeStackNavigator();
 
 const ScheduleListScreen = ({ navigation }: any) => {
 
@@ -42,7 +45,7 @@ const ScheduleListScreen = ({ navigation }: any) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             showModal()
-        }, 5000);
+        }, 3000);
         return () => clearTimeout(timer);
     }, []);
     return (

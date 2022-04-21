@@ -4,6 +4,7 @@ import { Appbar, Headline, List, Divider, Button, Snackbar } from "react-native-
 import { Drug } from "./DrugCard";
 import MainLayout from "./Layout";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useNavigation} from '@react-navigation/native';
 
 const inputStyle: StyleProp<ViewStyle> = {
         alignSelf: 'stretch',
@@ -97,12 +98,7 @@ const DrugDetailScreen = ({ navigation, route }: any) => {
                 <Snackbar
                     visible={visible}
                     onDismiss={onDismissSnackBar}
-                    action={{
-                    label: 'Go to list',
-                    onPress: () => {
-                        navigation.navigate("ItemList")
-                    },
-                    }}>
+                    action={{label: 'Go to list', onPress: () => { navigation.navigate("ItemList")}}}>
                     Medicine added to list
                 </Snackbar>
                 </ScrollView>

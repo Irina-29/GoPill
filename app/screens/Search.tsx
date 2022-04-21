@@ -72,18 +72,28 @@ const SearchScreen = ({ navigation }: any) => {
     const sortPrice = () => setPharmacy(pharmacyList.sort((a, b) => (a.drugPrice - b.drugPrice)));
     const sortDistance = () => setPharmacy(pharmacyList.sort((a, b) => (a.distance - b.distance)));
 
+    const [checked, setChecked] = React.useState('first');
+
     return (
         <><Portal>
             <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={{ backgroundColor: 'white', display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
             paddingTop: 20, paddingBottom: 20, marginRight: 25, marginLeft: 25,borderRadius: 20}}>
             <Text style={{display: 'flex',  flexDirection: 'row', alignItems: 'center', marginLeft: 35, fontSize: 15, marginBottom: 10}}>Filter by:</Text>
-            <RadioButton.Group onValueChange={newValue => newValue === "price"?sortPrice(): sortDistance()} value={value}>
+            <RadioButton.Group onValueChange={newValue => {newValue === "price"?sortPrice(): sortDistance(); setValue(newValue); hideModal()}} value={value}>
                 <View style={{display: 'flex',  flexDirection: 'row', alignItems: 'center', marginLeft: 25}}>
-                    <RadioButton value="price" />
+                    <RadioButton 
+                    value="price"
+                    // status={ checked === 'price' ? 'checked' : 'unchecked' }
+                    // onPress={() => setChecked('price')} 
+                    />
                     <Text>Price</Text>
                 </View>
                 <View style={{display: 'flex',  flexDirection: 'row', alignItems: 'center', marginLeft: 25}}>
-                    <RadioButton value="distance"/>
+                    <RadioButton 
+                    value="distance"
+                    // status={ checked === 'distance' ? 'checked' : 'unchecked' }
+                    // onPress={() => setChecked('distance')} 
+                    />
                     <Text>Distance</Text>
                 </View>
                 </RadioButton.Group>

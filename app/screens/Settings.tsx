@@ -59,7 +59,6 @@ const SettingsForApp = ({ navigation }: any) => {
                 style={{ backgroundColor: 'white', marginTop: 10 }}
                 icon="brightness-4"
                 label="Theme"
-                onPress={() => navigation.navigate('Login')}
             />
         </MainLayout></>
     );

@@ -33,7 +33,8 @@ const ListItem = ({ drug, onDelete}: any) => {
                     <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', marginTop: '5%', marginBottom: '5%' }}>
                         <Button labelStyle={{ color: 'white', fontSize: 15, lineHeight: 25 }} style={{ alignSelf: 'center', width: 200, marginBottom: 20, marginTop: 10}} mode="contained" color="#64b5f6"
                             // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
-                        onPress={() => navigation.navigate("ScheduleList")}
+                        // onPress={() => navigation.navigate("ScheduleList")}
+                        onPress={() => { hideModal(); navigation.navigate("ScheduleRootScreen",{screen:"ScheduleList"}); }}
                         >Add to schedule</Button>
                         <Button labelStyle={{ color: 'white', fontSize: 15, lineHeight: 25 }} style={{ alignSelf: 'center', width: 200}} mode="contained" color="#F95C6D"
                             // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
