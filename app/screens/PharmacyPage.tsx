@@ -17,20 +17,6 @@ const PharmacyDetailScreen = ({ navigation, route }: any) => {
 
         const [pharmacy, setPharmacy] = useState<Pharmacy>(route.params?.pharmacy || {})
 
-        // const addDrug = async() => {
-        //     const storedDrugs = await AsyncStorage.getItem("@mydrugs")
-        //     const drugs: Drug[] = storedDrugs?JSON.parse(storedDrugs): []
-
-        //     // const alarmDrug = drugs.find(d => d.name === "Paracetamol")
-        //     // if(alarmDrug) {
-        //     //     alarmDrug.remainingPills = alarmDrug?.remainingPills?alarmDrug.remainingPills-1: 0
-        //     // }
-        //     // await AsyncStorage.setItem("@mydrugs", JSON.stringify(drugs))
-
-        //     await AsyncStorage.setItem("@mydrugs", JSON.stringify([...drugs, drug]))
-        //     onToggleSnackBar()
-        // }
-
         const styles = StyleSheet.create({
             container: {
                 backgroundColor: '#64b5f6',

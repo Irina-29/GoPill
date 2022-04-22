@@ -45,7 +45,7 @@ const ScheduleListScreen = ({ navigation }: any) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             showModal()
-        }, 3000);
+        }, 5000);
         return () => clearTimeout(timer);
     }, []);
     return (
@@ -79,7 +79,7 @@ const ScheduleListScreen = ({ navigation }: any) => {
                 <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column' }}>
                     <ScrollView stickyHeaderIndices={[0]}>
                         <View style={{ backgroundColor: "white" }}>
-                            <Subheading style={{ marginLeft: "4%", marginBottom: "4%", marginTop: "4%" }}>Upcoming alarms</Subheading>
+                            <Subheading style={{ marginLeft: "4%", marginBottom: "4%", marginTop: "4%", color: "#64b5f6" }}>Upcoming alarms</Subheading>
                             <Divider />
                         </View>
                         {/* LIST -> SWIPE*/}
@@ -87,10 +87,24 @@ const ScheduleListScreen = ({ navigation }: any) => {
                             <List.Item
                                 style={{ marginLeft: "2%" }}
                                 title="Take Paracetamol"
-                                description="Today, 6:00 PM"
+                                description="Today, 7:30 PM"
                                 left={props => <List.Icon {...props} icon="pill" />}
                             />
                             <Divider />
+                            <List.Item
+                                style={{ marginLeft: "2%" }}
+                                title="Take Paracetamol"
+                                description="Tomorrow, 7:30 PM"
+                                left={props => <List.Icon {...props} icon="pill" />}
+                            />
+                            <Divider />
+                            <List.Item
+                                style={{ marginLeft: "2%" }}
+                                title="Take Paracetamol"
+                                description="Tuesday, 26th April, 7:30 PM"
+                                left={props => <List.Icon {...props} icon="pill" />}
+                            />
+                            {/* <Divider />
                             <List.Item
                                 style={{ marginLeft: "2%" }}
                                 title="Take Vitamin C"
@@ -125,7 +139,6 @@ const ScheduleListScreen = ({ navigation }: any) => {
                                 description="Wednesday, 28th May, 8:00 AM"
                                 left={props => <List.Icon {...props} icon="pill" />}
                             />
-
                             <Divider />
                             <List.Item
                                 style={{ marginLeft: "2%" }}
@@ -146,8 +159,7 @@ const ScheduleListScreen = ({ navigation }: any) => {
                                 title="Take Vitamin D3"
                                 description="Tomorrow, 12:00 PM"
                                 left={props => <List.Icon {...props} icon="pill" />}
-                            />
-
+                            /> */}
                         </List.Section>
                     </ScrollView>
                 </View>

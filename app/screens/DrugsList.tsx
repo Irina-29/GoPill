@@ -32,7 +32,7 @@ const DrugsScreen = ({ navigation }: any) => {
             quantity: 60,
             price: 42.30,
             image: require('./assets/drugs/calcivid.png'),
-            dose: 3,
+            dose: 2,
             remainingPills: 60,
             description: "Advil provides temporary relief of pain and discomfort from: Headache, Back Pain, Muscle Pain, Period Pain, Dental Pain, Arthritis Pain, Sore Throat Pain, Cold & Flu"        },
         {
@@ -50,7 +50,7 @@ const DrugsScreen = ({ navigation }: any) => {
             quantity: 20,
             price: 3.00,
             image: require('./assets/drugs/paracetamol.jpg'),
-            dose: 3,
+            dose: 6,
             remainingPills: 20,
             description: "Advil provides temporary relief of pain and discomfort from: Headache, Back Pain, Muscle Pain, Period Pain, Dental Pain, Arthritis Pain, Sore Throat Pain, Cold & Flu"        },
         {
@@ -59,8 +59,8 @@ const DrugsScreen = ({ navigation }: any) => {
             quantity: 30,
             price: 22.50,
             image: require('./assets/drugs/vitamin-c.jpg'),
-            dose: 4,
-            remainingPills: 30,
+            dose: 1,
+            remainingPills: 3,
             description: "Advil provides temporary relief of pain and discomfort from: Headache, Back Pain, Muscle Pain, Period Pain, Dental Pain, Arthritis Pain, Sore Throat Pain, Cold & Flu"        },
         {
             id: 6,
@@ -68,7 +68,7 @@ const DrugsScreen = ({ navigation }: any) => {
             quantity: 30,
             price: 33.50,
             image: require('./assets/drugs/vitamin-d.png'),
-            dose: 4,
+            dose: 1,
             remainingPills: 30,
             description: "Advil provides temporary relief of pain and discomfort from: Headache, Back Pain, Muscle Pain, Period Pain, Dental Pain, Arthritis Pain, Sore Throat Pain, Cold & Flu"        }
     ]

@@ -21,17 +21,17 @@ const MyOrdersScreen = ({ navigation }: any) => {
 
     const deliveredData: Order[] = [
         {
-            amount: 35,
+            amount: 29.50,
             date: "01-04-2022",
             id: 12480,
-            quantity: 5,
+            quantity: 1,
             status: "Delivered",
-            bottle: "7",
-            medicine: "Sumamed",
+            bottle: "25.30",
+            medicine: "Nurofen",
             no: 6
         },
         {
-            amount: 9,
+            amount: 12.35,
             date: "12-03-2022",
             id: 12481,
             quantity: 3,
@@ -41,27 +41,27 @@ const MyOrdersScreen = ({ navigation }: any) => {
             no: 5
         },
         {
-            amount: 16,
+            amount: 16.05,
             date: "28-02-2022",
             id: 12486,
-            quantity: 4,
+            quantity: 2,
             status: "Delivered",
             bottle: "4",
             medicine: "Vitamin D3",
             no: 4
         },
         {
-            amount: 10,
+            amount: 10.42,
             date: "03-02-2022",
             id: 12483,
-            quantity: 10,
+            quantity: 1,
             status: "Delivered",
             bottle: "1",
             medicine: "Vitamin C",
             no: 3
         },
         {
-            amount: 15,
+            amount: 48.52,
             date: "13-01-2022",
             id: 12495,
             quantity: 5,
@@ -71,7 +71,7 @@ const MyOrdersScreen = ({ navigation }: any) => {
             no: 2
         },
         {
-            amount: 18,
+            amount: 32.25,
             date: "26-12-2021",
             id: 12498,
             quantity: 3,
@@ -83,13 +83,13 @@ const MyOrdersScreen = ({ navigation }: any) => {
     ]
     const processingData: Order[] = [
         {
-            amount: 6,
+            amount: 17.65,
             date: "16-04-2022",
             id: 12484,
-            quantity: 6,
+            quantity: 1,
             status: "Processing",
-            bottle: "1",
-            medicine: "Paracetamol",
+            bottle: "15.35",
+            medicine: "Advil",
             no: 7
         }
     ]

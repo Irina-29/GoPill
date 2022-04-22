@@ -49,18 +49,18 @@ const HomeScreen = ({ navigation }: any) => {
                                 <Divider />
                                 <List.Item
                                     title="Take Paracetamol"
-                                    description="Alarm at 6:00 PM"
+                                    description="Alarm at 7:30 PM"
                                     left={props => <List.Icon {...props} icon="pill" />}
                                 />
                                 <Divider />
-                                <List.Item
+                                {/* <List.Item
                                     title="Take Vitamin C"
                                     description="Alarm at 6:30 PM"
                                     left={props => <List.Icon {...props} icon="pill" />}
                                 />
-                                <Divider />
+                                <Divider /> */}
                                 <List.Item
-                                    title="Only 3x Paracetamol pills left"
+                                    title="Only 3x Vitamin C pills left"
                                     description="Reorder medicine"
                                     left={props => <List.Icon {...props} icon="cart-outline" />}
                                 />

@@ -63,7 +63,7 @@ const OrderCard = ({ order }: { order: Order }) => {
                 </View>
                 <View style={lineStyle}>
                     <Text>Total amount: </Text>
-                    <Text style={boldStyle}>{`${order.amount} $`}</Text>
+                    <Text style={boldStyle}>{`${order.amount} lei`}</Text>
                 </View>
             </View>
             {expanded && order.status === 'Processing' && 
@@ -75,7 +75,7 @@ const OrderCard = ({ order }: { order: Order }) => {
                     </View>
                     <View style={lineStyle}>
                         <Text>Price: </Text>
-                        <Text style={boldStyle}>{`${order.bottle} $`}</Text>
+                        <Text style={boldStyle}>{`${order.bottle} lei`}</Text>
                     </View>
                 </View>
                 <View style={mapStyles.container}>
@@ -98,7 +98,7 @@ const OrderCard = ({ order }: { order: Order }) => {
                 </View>
                 <View style={lineStyle}>
                     <Text>Price: </Text>
-                    <Text style={boldStyle}>{`${order.bottle} $`}</Text>
+                    <Text style={boldStyle}>{`${order.bottle} lei`}</Text>
                 </View>
             </View>}
         </Card.Content>

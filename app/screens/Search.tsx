@@ -20,7 +20,7 @@ const SearchScreen = ({ navigation }: any) => {
             name: "Farmacia Tei",
             address: "Str. Barbu Văcărescu 154-158",
             hours: "8 AM - 8:45 PM",
-            drugPrice: 22.50,
+            drugPrice: 14.20,
             distance: 450
         },
         {
@@ -28,15 +28,15 @@ const SearchScreen = ({ navigation }: any) => {
             name: "Catena",
             address: "Calea Dorobanți 152",
             hours: "7 AM - 9:30 PM",
-            drugPrice: 20.50,
+            drugPrice: 13.49,
             distance: 300
         },
         {
             id: 3,
             name: "Sensiblu",
             address: "Strada Tipografilor 44150",
-            hours: "24 hours",
-            drugPrice: 21.49,
+            hours: "Open 24 hours",
+            drugPrice: 15.35,
             distance: 235
         }
     ]
