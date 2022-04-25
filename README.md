@@ -1,4 +1,14 @@
-# React Native + Firebase Seed
+# Go Pill
+Go Pill aims to guide people through their pill taking process.
+
+## About
+This is a mobile application where people can be reminded when they need to take their needed medication and when they should consider getting a refill based on how many pills the user has left. We provide users with an in-app schedule where they can introduce their medicine. Our app also offers a drug search feature where users can find all the pharmacies that have that medicine in stock and filter the results by convenience in terms of price and geography.
+
+This project was developed during the **Technovation** challenge.
+#### Website: https://technovationchallenge.org/
+
+## Demo
+Check it out: https://youtu.be/N-FW-xYh_S8
 
 ## Prerequisites
 
@@ -6,24 +16,8 @@
 - [Git Client](https://git-scm.com/download/win)
 - [NodeJs](https://nodejs.org/en/)
 - [React Native / Expo CLI](https://reactnative.dev/docs/environment-setup)
-- A [Firebase](https://firebase.google.com/docs/web/setup) web application
 
 ## Quick start
-
-Setup a `firebase-config.json` file at the root of the project, as instructed [here](https://docs.expo.dev/guides/using-firebase/).
-
-The file should look like this:
-
-```
-{
-    "apiKey": "[YOUR_API_KEY]",
-    "authDomain": "[YOUR_DOMAIN].firebaseapp.com",
-    "projectId": "[YOUR_PROJECT_ID]",
-    "storageBucket": "[YOUR_STORAGE_BUCKET].appspot.com",
-    "messagingSenderId": "[YOU_GET_THE_POINT]",
-    "appId": "[THIS_IS_THE_MOST_IMPORTANT_LINE]
-  }
-```
 
 In a terminal:
 
