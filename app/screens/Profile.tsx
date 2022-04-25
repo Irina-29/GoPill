@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "./Layout";
-import { Appbar, Avatar, Button, Divider, Drawer, List, Paragraph } from "react-native-paper";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { AsyncStorage, Dimensions, TouchableOpacity } from "react-native";
-import MyOrdersScreen from "./MyOrders";
-import SettingsForApp from "./Settings";
-const ProfileStack = createNativeStackNavigator();
+import { Appbar, Drawer } from "react-native-paper";
+import { Dimensions } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const ProfileScreen = ({ navigation }: any) => {
     const [user, setUser] = useState<{ name: string, email: string }>();
 
@@ -18,6 +16,7 @@ const ProfileScreen = ({ navigation }: any) => {
         }
         fetchUser();
     }, [])
+
     return (
         <MainLayout>
             <Appbar.Header style={{ backgroundColor: '#64b5f6', bottom: 10 }}>

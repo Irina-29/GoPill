@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Dimensions, StyleProp, TextStyle, View, ViewStyle, Text } from "react-native";
 import MapView, { Marker } from "react-native-maps";
-import { Avatar, Button, Card, Paragraph, TextInput } from "react-native-paper";
-import ItemEditScreen from "./ItemEdit";
-import MainLayout from "./Layout";
+import { Avatar, Button, Card } from "react-native-paper";
 
 const LeftContent = (date: string) => () => <Text>{date}</Text>
 

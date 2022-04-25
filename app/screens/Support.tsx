@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "./Layout";
-import { Appbar, Avatar, Button, Divider, Paragraph } from "react-native-paper";
-import { AsyncStorage, StyleProp, TouchableOpacity, ViewStyle } from "react-native";
+import { Appbar } from "react-native-paper";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const SupportPage = ({ navigation }: any) => {
     const [user, setUser] = useState<{ name: string, email: string }>();
-    const lineStyle: StyleProp<ViewStyle> = {
-        display: 'flex',
-        flexDirection: 'row'
-    }
     
     useEffect(() => {
         const fetchUser = async () => {
@@ -18,6 +15,7 @@ const SupportPage = ({ navigation }: any) => {
         }
         fetchUser();
     }, [])
+    
     return (
         <MainLayout>
             <Appbar.Header style={{ backgroundColor: '#64b5f6', bottom: 10 }}>

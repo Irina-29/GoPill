@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import MainLayout from "./Layout";
 import { Button, DataTable } from "react-native-paper";
 
 const PrescriptionListScreen = ({ navigation }: any) => {
 
         const [data, setData] = useState<{ id?: string, label: string, quantity: number }[]>([]);
-        /**
-         https://callstack.github.io/react-native-paper/data-table.html
-         */
+
         return <MainLayout>
                 <DataTable>
                         <DataTable.Header>

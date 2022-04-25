@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Avatar, Button, Card, Paragraph, Title } from "react-native-paper";
-import { View, Image, Text, ScrollView, StyleProp, ViewStyle, StyleSheet } from "react-native";
+import { Card } from "react-native-paper";
+import { Image, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const LeftContent = (drug:Drug)=>() => <Image style={{width: 85, height: 70}} source={drug.image} />

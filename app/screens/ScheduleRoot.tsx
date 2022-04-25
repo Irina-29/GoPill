@@ -3,7 +3,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ScheduleListScreen from "./ScheduleList";
 import ScheduleAlarmScreen from "./ScheduleAlarm";
 
-//https://reactnavigation.org/docs/hello-react-navigation
 const ItemStack = createNativeStackNavigator();
 
 const ScheduleRootScreen = () => {

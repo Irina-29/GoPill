@@ -73,7 +73,6 @@ const RegisterScreen = ({ navigation }: any) => {
             </Paragraph>
             <Button mode="outlined" style={{ alignSelf: 'center' }}
                 onPress={register}
-                //() => navigation.navigate('Main')
             >Register</Button>
         </View>
     );

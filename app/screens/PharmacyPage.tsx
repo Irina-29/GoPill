@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import { StyleProp, ViewStyle, Text, StyleSheet, View, Image, ScrollView, Dimensions } from "react-native";
+import { StyleProp, ViewStyle, Text, StyleSheet, View, ScrollView, Dimensions } from "react-native";
 import { Appbar, Avatar, Button, Snackbar } from "react-native-paper";
-import { Drug } from "./DrugCard";
 import MainLayout from "./Layout";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import MapView, { Marker } from 'react-native-maps';
 import { Pharmacy } from "./PharmacyCard";
 import openMap from 'react-native-open-maps';
-
-const inputStyle: StyleProp<ViewStyle> = {
-        alignSelf: 'stretch',
-        margin: 20
-};
 
 const PharmacyDetailScreen = ({ navigation, route }: any) => {
 
@@ -22,21 +15,6 @@ const PharmacyDetailScreen = ({ navigation, route }: any) => {
                 backgroundColor: '#64b5f6',
                 bottom: 10,
             },
-        });
-
-        const stylesItems = StyleSheet.create({
-            container: {
-                display: "flex",
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-evenly'
-            },
-            buttons: {
-                marginTop: "5%",
-                marginBottom: "5%",
-                marginLeft: '2%', 
-                marginRight: '2%'
-            }
         });
 
         const mapStyles: any = {

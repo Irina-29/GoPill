@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import MainLayout from "./Layout";
-import { Appbar, Button, Divider, IconButton, TextInput } from "react-native-paper";
-import { ScrollView, View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Appbar, Button, IconButton } from "react-native-paper";
+import { View, StyleSheet, Text } from "react-native";
 import { Drug } from "./DrugCard";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Picker } from '@react-native-picker/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
-
-const ScheduleStack = createNativeStackNavigator();
 
 const ScheduleAlarmScreen = ({ navigation, route }: any) => {
 
@@ -24,19 +21,16 @@ const ScheduleAlarmScreen = ({ navigation, route }: any) => {
             marginLeft: 40,
             marginRight: 20,
             marginTop: 15,
-            //borderWidth: 1,
             width: 250,
             padding: 10,
             borderBottomLeftRadius: 10,
             borderBottomRightRadius: 10,
             borderTopLeftRadius: 10,
             borderTopRightRadius: 10,
-            //borderColor: "grey"
         }
     });
 
     const number: any = drug.remainingPills
-    const numberUses = JSON.stringify(number);
 
     const [selectedValue, setSelectedValue] = useState("java");
 

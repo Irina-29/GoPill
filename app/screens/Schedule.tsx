@@ -4,7 +4,6 @@ import ScheduleEditScreen from "./ScheduleEdit";
 import ScheduleListScreen from "./ScheduleList";
 import ScheduleAlarmScreen from "./ScheduleAlarm";
 
-//https://reactnavigation.org/docs/hello-react-navigation
 const ScheduleStack = createNativeStackNavigator();
 
 const ScheduleScreen = () => {

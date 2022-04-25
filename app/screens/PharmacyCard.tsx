@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Avatar, Button, Card, Paragraph, Title } from "react-native-paper";
-import { View, Image, Text, ScrollView, StyleProp, ViewStyle, StyleSheet } from "react-native";
+import { Card, Paragraph, Title } from "react-native-paper";
+import { View, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 export interface Pharmacy {

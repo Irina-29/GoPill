@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React, { useState } from "react";
 import MainLayout from "./Layout";
-import { Button, Appbar, Searchbar } from "react-native-paper";
-import { View, Image, Text, ScrollView, StyleSheet } from "react-native";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Appbar, Searchbar } from "react-native-paper";
+import { ScrollView, StyleSheet } from "react-native";
 import DrugCard, { Drug } from "./DrugCard";
-
-const DrugsStack = createNativeStackNavigator();
 
 const renderDrugs = (Drugs: Drug[]) => {
     return (Drugs.map(drug => <DrugCard drug={drug} key={drug.id}></DrugCard>))

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "./Layout";
-import { Appbar, Avatar, Button, Divider, TextInput, Paragraph, Card } from "react-native-paper";
-import { StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle, Text, Pressable, ScrollView, Image } from "react-native";
+import { Appbar, Button, TextInput, Card } from "react-native-paper";
+import { StyleSheet,Text, ScrollView, Image } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const styles = StyleSheet.create({
     input: {
@@ -33,11 +32,7 @@ const AccountProfile = ({ navigation }: any) => {
     const [newPhoneNumber, setNewPhoneNumber] = useState('');
     const [hidePassword, setHidePassword] = useState(true);
     const [passwordVisibility, setPasswordVisibility] = useState(true);
-    const inputStyle: StyleProp<ViewStyle> = {
-        alignSelf: 'stretch',
-        margin: 10
-    };
-    const [text, onChangeText] = React.useState("Ana");
+    
     return (
         <MainLayout>
             <Appbar.Header style={{ backgroundColor: '#64b5f6', bottom: 10 }}>
@@ -89,7 +84,6 @@ const AccountProfile = ({ navigation }: any) => {
                     mode="outlined"
                     onChangeText={newPhoneNumber => setNewPhoneNumber(newPhoneNumber)}
                     defaultValue={user?.phoneNumber}
-                    mode="outlined"
                 />
                 <Text style={{ marginLeft: 15, color: "black" }}>Payment method</Text>
                 <Card style={{marginTop: "3%", marginBottom: "2%", marginLeft: "3%", marginRight: "3%"}}>

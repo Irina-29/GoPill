@@ -4,7 +4,6 @@ import PrescriptionCameraScreen from "./PrescriptionCamera";
 import PrescriptionListScreen from "./PrescriptionList";
 import PrescriptionEditScreen from "./PrescriptionEdit";
 
-//https://reactnavigation.org/docs/hello-react-navigation
 const ItemStack = createNativeStackNavigator();
 
 const PrescriptionScreen = () => {

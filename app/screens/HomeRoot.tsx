@@ -1,12 +1,10 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Profile from "./Profile";
 import HomeScreen from "./Home";
 import PrescriptionScreen from "./Prescription";
 import ProfileScreen from "./Profile";
 import MyOrdersScreen from "./MyOrders";
 import SettingsForApp from "./Settings";
-import DrugsScreen from "./DrugsList";
 import AccountProfile from "./AccountPage";
 import SupportPage from "./Support";
 import DrugRootScreen from "./DrugRoot";
@@ -16,7 +14,6 @@ import ItemListScreen from "./ItemList";
 import ScheduleAlarmScreen from "./ScheduleAlarm";
 import ScheduleListScreen from "./ScheduleList";
 
-//https://reactnavigation.org/docs/hello-react-navigation
 const ItemStack = createNativeStackNavigator();
 
 const HomeRootScreen = () => {

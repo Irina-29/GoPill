@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Appbar, Avatar } from "react-native-paper";
-import { ActivityIndicator, View, Image, TouchableOpacity } from "react-native";
+import { ActivityIndicator, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const MainLayout = ({ children }: any) => {

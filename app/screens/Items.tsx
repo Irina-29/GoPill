@@ -2,9 +2,7 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ItemListScreen from "./ItemList";
 import ListItem from "./ItemEdit";
-import ScheduleListScreen from "./ScheduleList";
 
-//https://reactnavigation.org/docs/hello-react-navigation
 const ItemStack = createNativeStackNavigator();
 
 const ItemScreen = () => {

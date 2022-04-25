@@ -15,6 +15,7 @@ const LoginScreen = ({ navigation }: any) => {
     };
 
     const changeText = (email: string) => setEmail(email);
+    
     const loginCheck = () => {
         if(email !== "failed") {
             navigation.navigate('Main');

@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainLayout from "./Layout";
-import { Button, DataTable, Title, List, Paragraph, Appbar, Avatar, Card, } from "react-native-paper";;
-import { AsyncStorage, TouchableOpacity, View, Text, StyleProp, ViewStyle, TextStyle, ScrollView, Dimensions } from "react-native";
+import { Appbar } from "react-native-paper";;
+import { ScrollView } from "react-native";
 import {
     Tabs,
     TabScreen,
-    useTabIndex,
-    useTabNavigation,
 } from 'react-native-paper-tabs';
-import MapView from "react-native-maps";
 import OrderCard, { Order } from "./OrderCard";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const renderOrders = (Orders: Order[]) => {
     return (Orders.map(order => <OrderCard order={order} key={order.id}></OrderCard>
@@ -93,6 +90,7 @@ const MyOrdersScreen = ({ navigation }: any) => {
             no: 7
         }
     ]
+
     const [user, setUser] = useState<{ name: string, email: string }>();
 
     useEffect(() => {
@@ -105,9 +103,6 @@ const MyOrdersScreen = ({ navigation }: any) => {
         fetchUser();
     }, [])
 
-    /**
-     https://callstack.github.io/react-native-paper/data-table.html
-     */
     return <MainLayout>
         <Appbar.Header style={{ backgroundColor: '#64b5f6', bottom: 10 }}>
             <Appbar.BackAction color="white" onPress={() => navigation.navigate("Profile")} />

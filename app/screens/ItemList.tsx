@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "./Layout";
-import { Divider, Headline, List, FAB, Modal, Portal, Provider, Button, Paragraph, Appbar} from "react-native-paper";
-import { View, ScrollView, TouchableOpacity, StyleSheet, Text } from "react-native";
+import { List, FAB, Appbar} from "react-native-paper";
+import { View, ScrollView, StyleSheet } from "react-native";
 import { Drug } from "./DrugCard";
 import ListItem from "./ItemEdit";
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -18,7 +18,6 @@ const ItemListScreen = ({ navigation, route }: any) => {
     });
 
     const refresh = () => {
-        // AsyncStorage.setItem('@mydrugs', '[]')
         AsyncStorage.getItem('@mydrugs').then(drugs => {
             if (!!drugs) {
                 setDrugs(JSON.parse(drugs));

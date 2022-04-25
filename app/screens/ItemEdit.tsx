@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { StyleProp, TouchableOpacity, View, ViewStyle } from "react-native";
-import { Button, Headline, List, Modal, Paragraph, Portal, Subheading } from "react-native-paper";
-import { Drug } from "./DrugCard";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { TouchableOpacity, View } from "react-native";
+import { Button, Headline, List, Modal, Portal, Subheading } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 
 const ListItem = ({ drug, onDelete}: any) => {
@@ -32,17 +30,11 @@ const ListItem = ({ drug, onDelete}: any) => {
                     <Subheading>{`${drug.remainingPills}x pills left`}</Subheading>
                     <View style={{ alignSelf: 'stretch', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', marginTop: '5%', marginBottom: '5%' }}>
                         <Button labelStyle={{ color: 'white', fontSize: 15, lineHeight: 25 }} style={{ alignSelf: 'center', width: 200, marginBottom: 20, marginTop: 10}} mode="contained" color="#64b5f6"
-                            // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
-                        // onPress={() => navigation.navigate("ScheduleList")}
                         onPress={() => { hideModal(); navigation.navigate("ScheduleAlarm", {drug}); }}
                         >Add to schedule</Button>
                         <Button labelStyle={{ color: 'white', fontSize: 15, lineHeight: 25 }} style={{ alignSelf: 'center', width: 200}} mode="contained" color="#F95C6D"
-                            // style={{width: 140, paddingTop: '4%', paddingBottom: '4%'}} 
                             onPress={() => onDelete(drug.id)}
                         >Remove from list</Button>
-                        {/* <Button labelStyle={{color:'white'}} style={{alignSelf: 'center', width: 200}} mode="contained" color="#64b5f6"
-                                onPress={() => navigation.navigate("Search")}
-                                >Buy medicine</Button> */}
                     </View>
                 </Modal>
             </Portal>

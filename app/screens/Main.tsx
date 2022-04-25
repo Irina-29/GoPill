@@ -1,16 +1,10 @@
 import React from "react";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from "./Home";
-import ItemScreen from "./Items";
-import ScheduleScreen from "./Schedule";
 import HomeRootScreen from "./HomeRoot";
 import ItemListScreen from "./ItemList";
-import ScheduleListScreen from "./ScheduleList";
-import SearchScreen from "./Search";
 import ScreenRootScreen from "./ScheduleRoot";
 
-//https://reactnavigation.org/docs/tab-based-navigation
 const Tab = createBottomTabNavigator();
 
 const MainNavigator = () => (
@@ -28,7 +22,6 @@ const MainNavigator = () => (
             }}
         />
         <Tab.Screen
-            //  LIST!!!
             name="Item"
             component={ItemListScreen}
             options={{
@@ -40,7 +33,6 @@ const MainNavigator = () => (
             }}
         />
         <Tab.Screen
-            //SCHEDULE!!!
             name="Schedule"
             component={ScreenRootScreen}
             options={{
