@@ -9,3 +9,21 @@ This project was developed during the **Technovation** challenge.
 
 ## Demo
 Check it out: https://youtu.be/N-FW-xYh_S8
+
+## Prerequisites
+
+- an IDE, such as [VS Code](https://code.visualstudio.com/)
+- [Git Client](https://git-scm.com/download/win)
+- [NodeJs](https://nodejs.org/en/)
+- [React Native / Expo CLI](https://reactnative.dev/docs/environment-setup)
+
+## Quick start
+
+In a terminal:
+
+```
+git clone https://github.com/Irina-29/GoPill.git
+cd GoPill
+npm install
+npm start
+```
